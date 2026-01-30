@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test
+
+  check-unchanged-dist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout highlight.js
+        uses: actions/checkout@v6
+        with:
+          repository: highlightjs/highlight.js
+          path: highlightjs
+      - name: Checkout highlightjs-energyplus into extra/
+        uses: actions/checkout@v6
+        with:
+          repository: jmarrec/highlightjs-energyplus
+          path: highlightjs/extra/highlightjs-energyplus
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 'lts/*'
+      - name: Install dependencies
+        working-directory: highlightjs
+        run: npm ci
+      - name: Build for CDN
+        working-directory: highlightjs
+        run: node ./tools/build.js -t cdn
+      - name: Check unchanged dist-folder
+        working-directory: highlightjs/extra/highlightjs-energyplus
+        shell: bash
+        run: |
+            git status
+            exit $(git status --porcelain=v1 2>/dev/null | grep -c dist/)

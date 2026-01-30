@@ -1,0 +1,40 @@
+{
+  "name": "highlightjs-energyplus",
+  "version": "0.0.1",
+  "author": "Julien Marrec",
+  "description": "A language definition for highlight.js for energyplus",
+  "main": "src/languages/energyplus.js",
+  "scripts": {
+    "mocha": "mocha",
+    "test": "mocha test",
+    "test-markup": "mocha test/markup",
+    "test-detect": "mocha test/detect",
+    "lint": "eslint src/languages/energyplus.js"
+  },
+  "files": [
+    "src/languages/energyplus.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jmarrec/highlightjs-energyplus.git"
+  },
+  "keywords": [
+    "energyplus",
+    "javascript",
+    "highlight",
+    "highlight.js",
+    "highlightjs",
+    "syntax"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jmarrec/highlightjs-energyplus/issues"
+  },
+  "homepage": "https://github.com/jmarrec/highlightjs-energyplus",
+  "devDependencies": {
+    "highlight.js": "^11.11.1",
+    "eslint": "^10.0.0",
+    "mocha": "^11.7.5",
+    "should": "^13.2.3"
+  }
+}
