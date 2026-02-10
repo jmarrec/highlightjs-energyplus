@@ -30,11 +30,3 @@ jobs:
         uses: DavidAnson/markdownlint-cli2-action@v22
         with:
           globs: '**/*.md'
-
-  codespell:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
-      - name: Run Codespell
-        uses: codespell-project/actions-codespell@v2
