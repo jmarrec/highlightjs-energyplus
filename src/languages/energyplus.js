@@ -17,15 +17,15 @@ module.exports = function (hljs) {
   ] };
 
   const OBJECT_NAMES_KEYWORDS = [
-      "CommentOnly", "Version", "SimulationControl", "PerformancePrecisionTradeoffs", "Building", "ShadowCalculation",
-    "SurfaceConvectionAlgorithm:Inside", "SurfaceConvectionAlgorithm:Outside", "HeatBalanceAlgorithm",
-    "HeatBalanceSettings:ConductionFiniteDifference", "Timestep"
+      "Version", "PerformancePrecisionTradeoffs", "ShadowCalculation", "SimulationControl", "Timestep",
+    "SurfaceConvectionAlgorithm:Outside", "SurfaceConvectionAlgorithm:Inside",
+    "HeatBalanceSettings:ConductionFiniteDifference", "Building", "CommentOnly", "HeatBalanceAlgorithm"
   ];
 
   const CHOICE_KEYWORDS = [
-      "SpectralAverage", "CUSTOM", "FixedMinimum", "TotalEfficiencyAndPressure", "GroundCoupledSurface",
-    "OnIfHighSolarOrHighLuminanceTillMidnight", "Ice", "Conductivity", "CoolingSetpointOnOffWithComponentOverride",
-    "RUB", "Suburbs", "MinimalShadowing"
+      "PlantEquipmentOperation:ThermalEnergyStorage", "July", "OutletDampers", "OnePerSurface",
+    "ZoneHVAC:Baseboard:Convective:Water", "MinimalShadowing", "Coil:Cooling:DX:MultiSpeed", "DistrictHotWater",
+    "DrawThrough", "NonCoincident", "Penman-Monteith", "Suburbs"
   ];
 
   const LITERALS = [
