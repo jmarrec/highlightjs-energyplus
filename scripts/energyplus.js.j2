@@ -23,6 +23,7 @@ module.exports = function (hljs) {
   const LITERALS = {{ literals | pretty_js_array }};
 
   const IDF_KEYWORDS = {
+    $pattern: /[\w:]+/,
     type: OBJECT_NAMES_KEYWORDS,
     keyword: CHOICE_KEYWORDS,
     literal: LITERALS

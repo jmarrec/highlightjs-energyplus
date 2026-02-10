@@ -634,6 +634,7 @@ module.exports = function (hljs) {
   ];
 
   const IDF_KEYWORDS = {
+    $pattern: /[\w:]+/,
     type: OBJECT_NAMES_KEYWORDS,
     keyword: CHOICE_KEYWORDS,
     literal: LITERALS

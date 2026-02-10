@@ -1,5 +1,4 @@
-! Highlight.js test for some energyplus
-
+! Highlight.js test for energyplus
 
 ! Environmental Emissions:        None
 ! Utility Tariffs:                None
@@ -17,3 +16,9 @@
     MinimalShadowing,        !- Solar Distribution
     30,                      !- Maximum Number of Warmup Days
     6;                       !- Minimum Number of Warmup Day
+
+  HeatBalanceAlgorithm,ConductionTransferFunction;
+
+  SurfaceConvectionAlgorithm:Inside,TARP;
+
+  Output:Variable,*,Site Total Sky Cover,hourly;
