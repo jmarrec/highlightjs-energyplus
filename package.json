@@ -5,6 +5,7 @@
   "description": "A language definition for highlight.js for energyplus",
   "main": "src/languages/energyplus.js",
   "scripts": {
+    "build": "rollup -c",
     "mocha": "mocha",
     "test": "mocha test",
     "test-markup": "mocha test/markup",
@@ -12,7 +13,8 @@
     "lint": "eslint src/languages/energyplus.js"
   },
   "files": [
-    "src/languages/energyplus.js"
+    "src/languages/energyplus.js",
+    "dist/"
   ],
   "repository": {
     "type": "git",
@@ -32,9 +34,12 @@
   },
   "homepage": "https://github.com/jmarrec/highlightjs-energyplus",
   "devDependencies": {
-    "highlight.js": "^11.11.1",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
     "eslint": "^10.0.0",
+    "highlight.js": "^11.11.1",
     "mocha": "^11.7.5",
+    "rollup": "^4.57.1",
     "should": "^13.2.3"
   }
 }
