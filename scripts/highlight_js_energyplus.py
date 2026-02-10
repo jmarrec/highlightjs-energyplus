@@ -102,13 +102,13 @@ def generate_highlightjs(idd_path: Path = DEFAULT_IDD_PATH, use_sample: bool = F
 
     object_names = sorted(object_names)
 
-    litterals = ["Yes", "No"]
-    assert all(x in choice_keywords for x in litterals)
+    literals = ["Yes", "No"]
+    assert all(x in choice_keywords for x in literals)
     # There are also a few integer choices that we want to filter out
     choice_keywords = sorted(
         choice_keywords
         - set(object_names)
-        - set(litterals)
+        - set(literals)
         - set([str(i) for i in range(10)])
         - set([f"A{i}" for i in range(10)])
     )
@@ -130,7 +130,7 @@ def generate_highlightjs(idd_path: Path = DEFAULT_IDD_PATH, use_sample: bool = F
     content = template.render(
         object_names_keywords=object_names,
         choice_keywords=choice_keywords,
-        litterals=litterals,
+        literals=literals,
     )
 
     return content
