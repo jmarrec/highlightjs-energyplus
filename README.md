@@ -29,7 +29,7 @@ Simply load the module after loading Highlight.js.  You'll use the minified vers
 
 ```html
 <script type="text/javascript"
-  src="https://unpkg.com/highlightjs-energyplus@0.0.3/dist/energyplus.min.js"></script>
+  src="https://unpkg.com/highlightjs-energyplus@0.0.4/dist/energyplus.min.js"></script>
 ```
 
 - More info: <https://unpkg.com>
