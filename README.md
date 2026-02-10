@@ -29,7 +29,7 @@ Simply load the module after loading Highlight.js.  You'll use the minified vers
 
 ```html
 <script type="text/javascript"
-  src="https://unpkg.com/highlightjs-energyplus@0.0.1/dist/energyplus.min.js"></script>
+  src="https://unpkg.com/highlightjs-energyplus@0.0.3/dist/energyplus.min.js"></script>
 ```
 
 - More info: <https://unpkg.com>
@@ -71,6 +71,8 @@ Contributions are what make the open source community such an amazing place to b
 ---
 
 This is free software (MIT License) contributed by [EffiBEM](https://effibem.com).
+
+![EffiBEM Logo](https://effibem.com/images/logo.png)
 
 Leveraging software, [EffiBEM](https://effibem.com) specializes in providing new ways to streamline your workflows
 and create new tools that work with limited inputs for your specific applications.

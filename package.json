@@ -1,6 +1,6 @@
 {
   "name": "highlightjs-energyplus",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Julien Marrec",
   "description": "A highlight.js language grammar for EnergyPlus IDF",
   "main": "src/languages/energyplus.js",
