@@ -9,7 +9,7 @@
   <span class="hljs-type">Timestep</span>,4;
 
   <span class="hljs-type">Building</span>,
-    Simple One Zone (Wireframe DXF),  <span class="hljs-comment">!- Name</span>
+    <span class="hljs-keyword">Simple</span> One <span class="hljs-type">Zone</span> (Wireframe <span class="hljs-keyword">DXF</span>),  <span class="hljs-comment">!- Name</span>
     0,                       <span class="hljs-comment">!- North Axis {deg}</span>
     <span class="hljs-keyword">Suburbs</span>,                 <span class="hljs-comment">!- Terrain</span>
     0.04,                    <span class="hljs-comment">!- Loads Convergence Tolerance Value {W}</span>

@@ -5,9 +5,9 @@ import argparse
 import json
 import platform
 from pathlib import Path
-from jinja2 import Environment, FileSystemLoader
 
 import openstudio
+from jinja2 import Environment, FileSystemLoader
 
 SCRIPTS_DIR = Path(__file__).parent
 TEMPLATE_NAME = "energyplus.js.j2"
@@ -106,7 +106,11 @@ def generate_highlightjs(idd_path: Path = DEFAULT_IDD_PATH, use_sample: bool = F
     assert all(x in choice_keywords for x in litterals)
     # There are also a few integer choices that we want to filter out
     choice_keywords = sorted(
-        choice_keywords - set(litterals) - set([str(i) for i in range(10)]) - set([f"A{i}" for i in range(10)])
+        choice_keywords
+        - set(object_names)
+        - set(litterals)
+        - set([str(i) for i in range(10)])
+        - set([f"A{i}" for i in range(10)])
     )
 
     if use_sample:
