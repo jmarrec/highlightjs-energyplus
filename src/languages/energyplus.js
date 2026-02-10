@@ -17,15 +17,15 @@ module.exports = function (hljs) {
   ] };
 
   const OBJECT_NAMES_KEYWORDS = [
-      "Version", "PerformancePrecisionTradeoffs", "ShadowCalculation", "SimulationControl", "Timestep",
-    "SurfaceConvectionAlgorithm:Outside", "SurfaceConvectionAlgorithm:Inside",
-    "HeatBalanceSettings:ConductionFiniteDifference", "Building", "CommentOnly", "HeatBalanceAlgorithm"
+      "AirConditioner:VariableRefrigerantFlow", "AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl",
+    "AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR", "AirLoopHVAC", "AirLoopHVAC:ControllerList",
+    "AirLoopHVAC:DedicatedOutdoorAirSystem", "AirLoopHVAC:ExhaustSystem", "AirLoopHVAC:Mixer",
+    "AirLoopHVAC:OutdoorAirSystem", "AirLoopHVAC:OutdoorAirSystem:EquipmentList", "Building", "Timestep", "Version"
   ];
 
   const CHOICE_KEYWORDS = [
-      "PlantEquipmentOperation:ThermalEnergyStorage", "July", "OutletDampers", "OnePerSurface",
-    "ZoneHVAC:Baseboard:Convective:Water", "MinimalShadowing", "Coil:Cooling:DX:MultiSpeed", "DistrictHotWater",
-    "DrawThrough", "NonCoincident", "Penman-Monteith", "Suburbs"
+      "AFN", "AIR", "ALL", "ANG", "ARGON", "ARS", "ASHRAE55Adaptive", "ASHRAE90.1-2004AppendixG", "ASHRAE90VariableFan",
+    "ASHRAEClearSky", "MinimalShadowing", "Suburbs"
   ];
 
   const LITERALS = [

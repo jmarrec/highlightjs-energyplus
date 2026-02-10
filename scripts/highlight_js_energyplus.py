@@ -7,10 +7,7 @@ import platform
 import textwrap
 from pathlib import Path
 
-from energyplus_parser.constants import BLOCK_INDENT, COMMENT_ONLY_OBJECT_NAME
-from energyplus_parser.idd.idd_field import IddField
-from energyplus_parser.idd.idd_file import IddFile
-from energyplus_parser.idd.idd_object import IddObject
+import openstudio
 
 SCRIPTS_DIR = Path(__file__).parent
 ROOT_DIR = SCRIPTS_DIR.parent
@@ -43,6 +40,26 @@ def list_to_pretty_js(keywords, width=120):
     return wrapped
 
 
+# Get all IddFields for an IddObject
+#
+# @param iddObject [OpenStudio::IddObject] the IddObject to scan
+# @return [Array[OpenStudio::IddField]
+def get_idd_fields(iddObject: openstudio.IddObject) -> [openstudio.IddField]:
+    """Get all IddFields for an IddObject.
+
+    Parameters
+    ----------
+    iddObject : openstudio.IddObject
+        the IddObject to scan
+
+    Returns
+    -------
+    fields : List[openstudio.IddField]
+    """
+    num_fields = iddObject.numFields() + iddObject.properties().numExtensible
+    return [iddObject.getField(i).get() for i in range(num_fields)]
+
+
 def generate_highlightjs(idd_path: Path = DEFAULT_IDD_PATH, use_sample: bool = False) -> str:
     """Generate highlight.js language definition from EnergyPlus IDD file.
 
@@ -51,25 +68,35 @@ def generate_highlightjs(idd_path: Path = DEFAULT_IDD_PATH, use_sample: bool = F
     Returns:
         str: The generated highlight.js language definition as a string.
     """
-    idd_file = IddFile.load(path=idd_path)
+    idd_file_ = openstudio.IddFile.load(idd_path)
+    if not idd_file_.is_initialized():
+        raise ValueError(f"Couldn't load {idd_path}")
 
-    object_names = [o.name for o in idd_file.objects]
+    idd_file = idd_file_.get()
 
+    object_names = []
     choice_keywords = set()
-    for o in idd_file.objects:
-        for field in o.fields:
-            if field.keys:
-                # print(o.name, field.name, field.keys)
-                choice_keywords |= set([k.name for k in field.keys])
+
+    for iddObject in idd_file.objects():
+        object_names.append(iddObject.name())
+        for field in get_idd_fields(iddObject=iddObject):
+            if keys := field.keys():
+                # print(iddObject.name(), field.name(), [k.name() for k in field.keys()])
+                choice_keywords |= set([k.name() for k in keys])
+
+    object_names = sorted(object_names)
 
     litterals = ["Yes", "No"]
     assert all(x in choice_keywords for x in litterals)
-    choice_keywords = list(choice_keywords - set(litterals))
+    # There are also a few integer choices that we want to filter out
+    choice_keywords = sorted(
+        choice_keywords - set(litterals) - set([str(i) for i in range(10)]) - set([f"A{i}" for i in range(10)])
+    )
 
     if use_sample:
         # Still make sure we add object names and choice keywords used in testing
-        object_names = list(set(["Building", "Timestep"] + object_names[:10]))
-        choice_keywords = list(set(["Suburbs", "MinimalShadowing"] + choice_keywords[:10]))
+        object_names = sorted(set(["Building", "Timestep", "Version"] + object_names[:10]))
+        choice_keywords = sorted(set(["Suburbs", "MinimalShadowing"] + choice_keywords[:10]))
 
     header = r"""/*
 Language: energyplus
