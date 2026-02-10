@@ -2,7 +2,7 @@
   "name": "highlightjs-energyplus",
   "version": "0.0.1",
   "author": "Julien Marrec",
-  "description": "A language definition for highlight.js for energyplus",
+  "description": "A highlight.js language grammar for EnergyPlus IDF",
   "main": "src/languages/energyplus.js",
   "scripts": {
     "mocha": "mocha",
