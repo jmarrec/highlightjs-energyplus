@@ -16,11 +16,11 @@ module.exports = function (hljs) {
     hljs.COMMENT('!', '$', { relevance: 0 }),
   ] };
 
-  const OBJECT_NAMES_KEYWORDS = ["AirConditioner:VariableRefrigerantFlow", "AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl", "AirConditioner:VariableRefrigerantFlow:FluidTemperatureControl:HR", "AirLoopHVAC", "AirLoopHVAC:ControllerList", "AirLoopHVAC:DedicatedOutdoorAirSystem", "AirLoopHVAC:ExhaustSystem", "AirLoopHVAC:Mixer", "AirLoopHVAC:OutdoorAirSystem", "AirLoopHVAC:OutdoorAirSystem:EquipmentList", "Building", "Timestep", "Version"];
+  const OBJECT_NAMES_KEYWORDS = {{ object_names_keywords | tojson }};
 
-  const CHOICE_KEYWORDS = ["AFN", "AIR", "ALL", "ANG", "ARGON", "ARS", "ASHRAE55Adaptive", "ASHRAE90.1-2004AppendixG", "ASHRAE90VariableFan", "ASHRAEClearSky", "MinimalShadowing", "Suburbs"];
+  const CHOICE_KEYWORDS = {{ choice_keywords | tojson }};
 
-  const LITERALS = ["Yes", "No"];
+  const LITERALS = {{ litterals | tojson }};
 
   const IDF_KEYWORDS = {
     type: OBJECT_NAMES_KEYWORDS,

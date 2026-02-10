@@ -6,11 +6,17 @@ import json
 import platform
 import textwrap
 from pathlib import Path
+from jinja2 import Environment, FileSystemLoader
 
 import openstudio
 
 SCRIPTS_DIR = Path(__file__).parent
+TEMPLATE_NAME = "energyplus.js.j2"
+TEMPLATE_PATH = SCRIPTS_DIR / TEMPLATE_NAME
+assert TEMPLATE_PATH.is_file(), f"Template file not found at path: {TEMPLATE_PATH}"
+
 ROOT_DIR = SCRIPTS_DIR.parent
+
 LANG_DIR = ROOT_DIR / "src" / "languages"
 OUTPUT_HLJS_PATH = LANG_DIR / "energyplus.js"
 
@@ -98,82 +104,19 @@ def generate_highlightjs(idd_path: Path = DEFAULT_IDD_PATH, use_sample: bool = F
         object_names = sorted(set(["Building", "Timestep", "Version"] + object_names[:10]))
         choice_keywords = sorted(set(["Suburbs", "MinimalShadowing"] + choice_keywords[:10]))
 
-    header = r"""/*
-Language: energyplus
-Description: EnergyPlus is a whole building energy simulation program that engineers, architects, and researchers use to model both energy consumption and water use in buildings.
-Author: Julien Marrec <contact@effibem.com>
-Website: https://energyplus.net
-Category: scripting
-*/
+    # Set up Jinja2 environment
+    env = Environment(
+        loader=FileSystemLoader(SCRIPTS_DIR),
+        keep_trailing_newline=True,
+    )
 
-/** @type LanguageFn */
-module.exports = function (hljs) {
+    template = env.get_template(TEMPLATE_NAME)
 
-  const regex = hljs.regex;
-"""
-
-    content = header
-
-    content += """
-  const COMMENT = { variants: [
-    hljs.COMMENT('!-', '$', { relevance: 0 }),
-    hljs.COMMENT('!', '$', { relevance: 0 }),
-  ] };
-"""
-
-    content += f"""
-  const OBJECT_NAMES_KEYWORDS = [
-    {list_to_pretty_js(object_names)}
-  ];
-
-  const CHOICE_KEYWORDS = [
-    {list_to_pretty_js(choice_keywords)}
-  ];
-
-  const LITERALS = [
-    {list_to_pretty_js(litterals)}
-  ];
-
-  const IDF_KEYWORDS = {{
-    type: OBJECT_NAMES_KEYWORDS,
-    keyword: CHOICE_KEYWORDS,
-    literal: LITERALS
-  }};
-"""
-
-    content += r"""
-  const FUNCTION = {
-    className: 'function',
-    begin: regex.concat(
-      /^(?:\s*)/,
-      `(?!${OBJECT_NAMES_KEYWORDS.join('|')})`,
-      /,/
-    ),
-    end: /;/
-  };
-"""
-
-    content += r"""
-  return {
-    name: 'energyplus',
-    aliases: [
-      'idf',
-      'IDF'
-    ],
-    case_insensitive: true,
-    keywords: IDF_KEYWORDS,
-    contains: [
-      FUNCTION,
-      COMMENT,
-      {
-        className: 'meta.version',
-        begin: /(?:^\s*[Vv]ersion,\s*)(\d+\.\d+)/,
-        relevance: 10
-      }
-    ]
-  };
-}
-"""
+    content = template.render(
+        object_names_keywords=object_names,
+        choice_keywords=choice_keywords,
+        litterals=litterals,
+    )
 
     return content
 
