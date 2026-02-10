@@ -629,7 +629,9 @@ module.exports = function (hljs) {
     "gal", "kBtu", "kWh", "kgal", "kmol/s", "m3", "regular"
   ];
 
-  const LITERALS = ["Yes", "No"];
+  const LITERALS = [
+    "Yes", "No"
+  ];
 
   const IDF_KEYWORDS = {
     type: OBJECT_NAMES_KEYWORDS,

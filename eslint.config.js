@@ -9,7 +9,7 @@ module.exports = {
       'comma-dangle': 'off',
       'array-bracket-spacing': ['error', 'always'],
       'array-bracket-newline': ['warn', { multiline: true, minItems: 2 }],
-      'array-element-newline': 'warn',
+      'array-element-newline': 'off',
       'object-curly-newline': ['warn', { minProperties: 2 }],
       'object-property-newline': ['error', { allowAllPropertiesOnSameLine: false }]
     }
