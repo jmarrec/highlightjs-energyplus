@@ -12,10 +12,11 @@ from energyplus_parser.idd.idd_object import IddObject
 
 use_sample = True
 
-output_hljs_path = Path(__file__).parent / "energyplus.js"
+ROOT_DIR = Path(__file__).parent
+output_hljs_path = ROOT_DIR / "src/languages/energyplus.js"
 
 
-idd_file = IddFile.load(Path("/Applications/EnergyPlus-25-2-0/Energy+.idd"))
+idd_file = IddFile.load(Path("/usr/local/EnergyPlus-25-2-0/Energy+.idd"))
 
 
 object_names = [o.name for o in idd_file.objects]
