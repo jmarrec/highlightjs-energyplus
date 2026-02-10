@@ -12,7 +12,7 @@ module.exports = function (hljs) {
   const regex = hljs.regex;
 
   const COMMENT = { variants: [
-    hljs.COMMENT('!-', '$', { relevance: 0 }),
+    hljs.COMMENT('!-', '$', { relevance: 2 }),
     hljs.COMMENT('!', '$', { relevance: 0 }),
   ] };
 
