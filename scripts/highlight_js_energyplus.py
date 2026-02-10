@@ -4,7 +4,6 @@
 import argparse
 import json
 import platform
-import textwrap
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 
@@ -28,22 +27,33 @@ elif platform.system() == "Windows":
     DEFAULT_IDD_PATH = Path("C:/EnergyPlus-25-2-0/Energy+.idd")
 
 
-def list_to_pretty_js(keywords, width=120):
+def pretty_js_array(keywords, width=120, indent=4):
+    """Format a list of strings as a pretty-printed JS array.
 
-    # Quote strings safely for JS (JSON-compatible)
+    Each quoted string is treated as an atomic token that will never be
+    broken across lines, unlike textwrap.fill which splits on spaces
+    inside quoted strings.
+    """
     quoted = [json.dumps(k) for k in keywords]
+    indent_str = " " * indent
+    lines = []
+    current_line = indent_str
 
-    body = ", ".join(quoted)
+    for i, item in enumerate(quoted):
+        separator = ", " if i > 0 else ""
+        candidate = current_line + separator + item
 
-    wrapped = textwrap.fill(
-        body,
-        initial_indent="  ",
-        subsequent_indent="    ",
-        width=120,
-        break_long_words=False,
-        break_on_hyphens=False,
-    )
-    return wrapped
+        if len(candidate) > width and current_line != indent_str:
+            # Current line is full, start a new one
+            lines.append(current_line + ",")
+            current_line = indent_str + item
+        else:
+            current_line = candidate
+
+    if current_line.strip():
+        lines.append(current_line)
+
+    return "[\n" + "\n".join(lines) + "\n  ]"
 
 
 # Get all IddFields for an IddObject
@@ -109,6 +119,7 @@ def generate_highlightjs(idd_path: Path = DEFAULT_IDD_PATH, use_sample: bool = F
         loader=FileSystemLoader(SCRIPTS_DIR),
         keep_trailing_newline=True,
     )
+    env.filters["pretty_js_array"] = pretty_js_array
 
     template = env.get_template(TEMPLATE_NAME)
 

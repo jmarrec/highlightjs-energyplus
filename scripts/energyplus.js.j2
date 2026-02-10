@@ -16,9 +16,9 @@ module.exports = function (hljs) {
     hljs.COMMENT('!', '$', { relevance: 0 }),
   ] };
 
-  const OBJECT_NAMES_KEYWORDS = {{ object_names_keywords | tojson }};
+  const OBJECT_NAMES_KEYWORDS = {{ object_names_keywords | pretty_js_array }};
 
-  const CHOICE_KEYWORDS = {{ choice_keywords | tojson }};
+  const CHOICE_KEYWORDS = {{ choice_keywords | pretty_js_array }};
 
   const LITERALS = {{ litterals | tojson }};
 

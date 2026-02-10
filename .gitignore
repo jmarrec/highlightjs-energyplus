@@ -64,3 +64,8 @@ typings/
 
 # next.js build output
 .next
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
