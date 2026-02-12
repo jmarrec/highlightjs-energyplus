@@ -13,6 +13,12 @@ See [energyplus.net](https://energyplus.net).
 
 Simply include the Highlight.js library in your webpage or Node app, then load this module.
 
+**TWO grammars are provided**:
+
+- energyplus: for IDF files (would work for OpenStudio OSM mostly)
+- energyplus-err: for eplusout.err files
+
+
 ### Static website
 
 Simply load the module after loading Highlight.js.  You'll use the minified version found in the `dist` directory.  This module is just a CDN build of the language, so it will register itself as the Javascript is loaded.
@@ -20,6 +26,7 @@ Simply load the module after loading Highlight.js.  You'll use the minified vers
 ```html
 <script type="text/javascript" src="/path/to/highlight.min.js"></script>
 <script type="text/javascript" src="/path/to/energyplus.min.js"></script>
+<script type="text/javascript" src="/path/to/energyplus-err.min.js"></script>
 <script type="text/javascript">
   hljs.highlightAll();
 </script>
@@ -32,6 +39,8 @@ Simply load the module after loading Highlight.js.  You'll use the minified vers
 ```html
 <script type="text/javascript"
   src="https://unpkg.com/highlightjs-energyplus@0.2.0/dist/energyplus.min.js"></script>
+<script type="text/javascript"
+  src="https://unpkg.com/highlightjs-energyplus@0.2.0/dist/energyplus-err.min.js"></script>
 ```
 
 #### JS Delivr
@@ -39,6 +48,8 @@ Simply load the module after loading Highlight.js.  You'll use the minified vers
 ```html
 <script type="text/javascript"
   src="https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.2.0/dist/energyplus.min.js"></script>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.2.0/dist/energyplus-err.min.js"></script>
 ```
 
 #### As a Browser ES6 Module
@@ -49,11 +60,16 @@ Here I'm importing only the `core` package and registering only energyplus langu
 
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css">
+
 <script type="module">
-  import hljs from 'https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/es/core.min.js';
-  import energyplus from 'https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.2.0/dist/energyplus.es.min.js';
-  hljs.registerLanguage('energyplus', energyplus);
-  hljs.highlightAll();
+import hljs from 'https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/es/core.min.js';
+// Register the energyplus language grammar
+import energyplus from 'https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.2.0/dist/energyplus.es.min.js';
+import energyplusErr from 'https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.2.0/dist/energyplus-err.es.min.js';
+hljs.registerLanguage('energyplus', energyplus);
+hljs.registerLanguage('energyplus-err', energyplusErr);
+
+hljs.highlightAll();
 </script>
 ```
 
@@ -64,8 +80,10 @@ If you're using Node / Webpack / Rollup / Browserify, etc, simply require the la
 ```javascript
 var hljs = require('highlight.js/lib/core');
 var energyplus = require('highlightjs-energyplus');
+var energyplusErr = require('highlightjs-energyplus/src/languages/energyplus-err');
 
 hljs.registerLanguage("energyplus", energyplus);
+hljs.registerLanguage("energyplus-err", energyplusErr);
 hljs.highlightAll();
 ```
 
@@ -74,8 +92,10 @@ Or with ES modules:
 ```javascript
 import hljs from 'highlight.js/lib/core';
 import energyplus from 'highlightjs-energyplus';
+import energyplusErr from 'highlightjs-energyplus/src/languages/energyplus-err';
 
 hljs.registerLanguage("energyplus", energyplus);
+hljs.registerLanguage("energyplus-err", energyplusErr);
 hljs.highlightAll();
 ```
 
