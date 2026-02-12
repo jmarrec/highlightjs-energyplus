@@ -1,6 +1,6 @@
 # highlightjs-energyplus - a language grammar for highlight.js
 
-![version](https://badgen.net/npm/v/highlightjs-energyplus) ![license](https://badgen.net/badge/license/MIT/blue)
+[![version](https://badgen.net/npm/v/highlightjs-energyplus)](https://www.npmjs.com/package/highlightjs-energyplus) [![license](https://badgen.net/badge/license/MIT/blue)](https://github.com/jmarrec/highlightjs-energyplus/blob/main/LICENSE)
 ![install size](https://badgen.net/packagephobia/install/highlightjs-energyplus) ![minified size](https://badgen.net/bundlephobia/min/highlightjs-energyplus)
 
 [![ci status](https://github.com/jmarrec/highlightjs-energyplus/actions/workflows/ci.yml/badge.svg)](https://github.com/jmarrec/highlightjs-energyplus/actions/workflows/ci.yml)
@@ -25,24 +25,57 @@ Simply load the module after loading Highlight.js.  You'll use the minified vers
 </script>
 ```
 
-### Using directly from the UNPKG CDN
+### Using directly from a CDN
+
+#### UNPKG
 
 ```html
 <script type="text/javascript"
   src="https://unpkg.com/highlightjs-energyplus@0.1.0/dist/energyplus.min.js"></script>
 ```
 
-- More info: <https://unpkg.com>
+#### JS Delivr
+
+```html
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.1.0/dist/energyplus.min.js"></script>
+```
+
+#### As a Browser ES6 Module
+
+Note: for browser ES6 module usage, use the `@highlightjs/cdn-assets` package for highlight.js itself (see [highlight.js docs](https://github.com/highlightjs/highlight.js#browser-es6-modules)).
+
+Here I'm importing only the `core` package and registering only energyplus language, so we minimize the size of the dependencies.
+
+```html
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css">
+<script type="module">
+  import hljs from 'https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/es/core.min.js';
+  import energyplus from 'https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.1.0/dist/energyplus.es.min.js';
+  hljs.registerLanguage('energyplus', energyplus);
+  hljs.highlightAll();
+</script>
+```
 
 ### With Node or another build system
 
 If you're using Node / Webpack / Rollup / Browserify, etc, simply require the language module, then register it with Highlight.js.
 
 ```javascript
-var hljs = require('highlight.js');
-var hljsYourLanguage = require('highlightjs-energyplus');
+var hljs = require('highlight.js/lib/core');
+var energyplus = require('highlightjs-energyplus');
 
-hljs.registerLanguage("energyplus", hljsYourLanguage);
+hljs.registerLanguage("energyplus", energyplus);
+hljs.highlightAll();
+```
+
+Or with ES modules:
+
+```javascript
+import hljs from 'highlight.js/lib/core';
+import energyplus from 'highlightjs-energyplus';
+
+hljs.registerLanguage("energyplus", energyplus);
 hljs.highlightAll();
 ```
 
