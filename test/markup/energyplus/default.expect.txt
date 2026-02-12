@@ -5,7 +5,7 @@
 <span class="hljs-meta version_">
   Version,26.1;</span>
 
-  <span class="hljs-type">Timestep</span>,<span class="hljs-number">4</span>;
+  <span class="hljs-type">Timestep</span>,<span class="hljs-number">4</span><span class="hljs-operator">;</span>
 
   <span class="hljs-type">Building</span>,
     <span class="hljs-keyword">Simple</span> One <span class="hljs-type">Zone</span> (Wireframe <span class="hljs-keyword">DXF</span>),  <span class="hljs-comment">!- Name</span>
@@ -15,10 +15,10 @@
     <span class="hljs-number">0.004</span>,                   <span class="hljs-comment">!- Temperature Convergence Tolerance Value {deltaC}</span>
     <span class="hljs-keyword">MinimalShadowing</span>,        <span class="hljs-comment">!- Solar Distribution</span>
     <span class="hljs-number">30</span>,                      <span class="hljs-comment">!- Maximum Number of Warmup Days</span>
-    <span class="hljs-number">6</span>;                       <span class="hljs-comment">!- Minimum Number of Warmup Day</span>
+    <span class="hljs-number">6</span><span class="hljs-operator">;</span>                       <span class="hljs-comment">!- Minimum Number of Warmup Day</span>
 
-  <span class="hljs-type">HeatBalanceAlgorithm</span>,<span class="hljs-keyword">ConductionTransferFunction</span>;
+  <span class="hljs-type">HeatBalanceAlgorithm</span>,<span class="hljs-keyword">ConductionTransferFunction</span><span class="hljs-operator">;</span>
 
-  <span class="hljs-type">SurfaceConvectionAlgorithm:Inside</span>,<span class="hljs-keyword">TARP</span>;
+  <span class="hljs-type">SurfaceConvectionAlgorithm:Inside</span>,<span class="hljs-keyword">TARP</span><span class="hljs-operator">;</span>
 
-  <span class="hljs-type">Output:Variable</span>,*,Site <span class="hljs-keyword">Total</span> Sky Cover,<span class="hljs-keyword">hourly</span>;
+  <span class="hljs-type">Output:Variable</span>,*,Site <span class="hljs-keyword">Total</span> Sky Cover,<span class="hljs-keyword">hourly</span><span class="hljs-operator">;</span>

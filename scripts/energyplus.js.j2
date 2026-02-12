@@ -9,8 +9,6 @@ Category: scripting
 /** @type LanguageFn */
 module.exports = function (hljs) {
 
-  const regex = hljs.regex;
-
   const COMMENT = { variants: [
     hljs.COMMENT('!-', '$', { relevance: 2 }),
     hljs.COMMENT('!', '$', { relevance: 0 }),
@@ -29,14 +27,20 @@ module.exports = function (hljs) {
     literal: LITERALS
   };
 
-  const FUNCTION = {
-    className: 'function',
-    begin: regex.concat(
-      /^(?:\s*)/,
-      `(?!${OBJECT_NAMES_KEYWORDS.join('|')})`,
-      /,/
-    ),
-    end: /;/
+  const OBJECT_BLOCK = {
+    begin: [
+      /^\s*/,
+      /[A-Za-z][\w:-]*/,
+      /\s*,/
+    ],
+    beginScope: { 2: 'type' },
+    end: /;/,
+    endScope: 'operator',
+    keywords: IDF_KEYWORDS,
+    contains: [
+      COMMENT,
+      hljs.NUMBER_MODE,
+    ]
   };
 
   return {
@@ -48,15 +52,15 @@ module.exports = function (hljs) {
     case_insensitive: true,
     keywords: IDF_KEYWORDS,
     contains: [
-      FUNCTION,
-      COMMENT,
-      hljs.NUMBER_MODE,
       {
         className: 'meta.version',
         begin: /^\s*[Vv]ersion,/,
         end: /;/,
         relevance: 10
       },
+      OBJECT_BLOCK,
+      COMMENT,
+      hljs.NUMBER_MODE,
     ]
   };
 }
