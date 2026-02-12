@@ -50,9 +50,11 @@ module.exports = function (hljs) {
     contains: [
       FUNCTION,
       COMMENT,
+      hljs.NUMBER_MODE,
       {
         className: 'meta.version',
-        begin: /(?:^\s*[Vv]ersion,\s*)(\d+\.\d+)/,
+        begin: /^\s*[Vv]ersion,/,
+        end: /;/,
         relevance: 10
       },
     ]
