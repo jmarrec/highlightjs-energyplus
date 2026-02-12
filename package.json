@@ -9,11 +9,12 @@
     "test": "mocha test",
     "test-markup": "mocha test/markup",
     "test-detect": "mocha test/detect",
-    "lint": "eslint src/languages/energyplus.js",
+    "lint": "eslint src/languages/energyplus.js src/languages/energyplus-err.js",
     "version": "node -e \"const fs=require('fs');const f='README.md';fs.writeFileSync(f,fs.readFileSync(f,'utf8').replace(/highlightjs-energyplus@[0-9.]+/g,'highlightjs-energyplus@'+process.env.npm_package_version))\" && git add README.md"
   },
   "files": [
     "src/languages/energyplus.js",
+    "src/languages/energyplus-err.js",
     "dist/"
   ],
   "repository": {

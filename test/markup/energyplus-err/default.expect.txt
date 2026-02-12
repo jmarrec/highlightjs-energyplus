@@ -1,0 +1,23 @@
+<span class="hljs-meta">Program Version,EnergyPlus, Version 25.2.0-6b7186059e, YMD=2026.02.12 16:08,</span>
+   <span class="hljs-string">** Warning **</span> Version: in IDF=&quot;<span class="hljs-number">26.1</span>&quot; not the same as expected=&quot;<span class="hljs-number">25.2</span>&quot;
+<span class="hljs-comment">   **   ~~~   ** ..Location object=DENVER CENTENNIAL  GOLDEN   N_CO_USA DESIGN_CONDITIONS</span>
+<span class="hljs-comment">   **   ~~~   ** ..due to location differences, Latitude difference=[2.24] degrees, Longitude difference=[17.26] degrees.</span>
+   <span class="hljs-string">** Warning **</span> SetUpDesignDay: Entered DesignDay Barometric Pressure=<span class="hljs-number">81198</span> differs by more than <span class="hljs-number">10</span>% from Standard Barometric Pressure=<span class="hljs-number">98934</span>.
+<span class="hljs-comment">   **   ~~~   ** ...occurs in DesignDay=DENVER CENTENNIAL  GOLDEN   N ANN HTG 99% CONDNS DB, Standard Pressure (based on elevation) will be used.</span>
+<span class="hljs-comment">   ************* Testing Individual Branch Integrity</span>
+<span class="hljs-comment">   ************* All Branches passed integrity testing</span>
+<span class="hljs-comment">   ************* Beginning Simulation</span>
+   <span class="hljs-string">** Warning **</span> Temperature out of range [-<span class="hljs-number">100</span>. to <span class="hljs-number">200</span>.] (PsyPsatFnTemp)
+<span class="hljs-comment">   **   ~~~   **  Input Temperature=-3116.26</span>
+<span class="hljs-comment">   **   ~~~   **  Input Humidity Ratio= 1.257224E-003</span>
+<span class="hljs-comment">   **   ~~~   **  Resultant Temperature= -3.62E-003</span>
+   <span class="hljs-keyword">** Severe  **</span> DetermineShadowingCombinations: There are <span class="hljs-number">2</span> surfaces which are casting surfaces and are non-convex.
+<span class="hljs-comment">   **   ~~~   ** ...Shadowing values may be inaccurate. Check .shd report file for more surface shading details</span>
+   <span class="hljs-title">**  Fatal  **</span> Unable to determine fan air flow rate.
+<span class="hljs-comment">   ************* Simulation Error Summary *************</span>
+<span class="hljs-comment">   *************</span>
+   *************  <span class="hljs-string">** Warning **</span> Temperature out of range [-<span class="hljs-number">100</span>. to <span class="hljs-number">200</span>.] (PsyPsatFnTemp)
+<span class="hljs-comment">   *************  **   ~~~   **   This error occurred 1 total times;</span>
+<span class="hljs-comment">   *************  **   ~~~   **   Max=-3116.264404 C  Min=-3116.264404 C</span>
+<span class="hljs-comment">   *************</span>
+<span class="hljs-comment">   ************* EnergyPlus Completed Successfully-- 7 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  0.61sec</span>

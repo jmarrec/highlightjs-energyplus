@@ -1,0 +1,23 @@
+Program Version,EnergyPlus, Version 25.2.0-6b7186059e, YMD=2026.02.12 16:08,
+   ** Warning ** Version: in IDF="26.1" not the same as expected="25.2"
+   **   ~~~   ** ..Location object=DENVER CENTENNIAL  GOLDEN   N_CO_USA DESIGN_CONDITIONS
+   **   ~~~   ** ..due to location differences, Latitude difference=[2.24] degrees, Longitude difference=[17.26] degrees.
+   ** Warning ** SetUpDesignDay: Entered DesignDay Barometric Pressure=81198 differs by more than 10% from Standard Barometric Pressure=98934.
+   **   ~~~   ** ...occurs in DesignDay=DENVER CENTENNIAL  GOLDEN   N ANN HTG 99% CONDNS DB, Standard Pressure (based on elevation) will be used.
+   ************* Testing Individual Branch Integrity
+   ************* All Branches passed integrity testing
+   ************* Beginning Simulation
+   ** Warning ** Temperature out of range [-100. to 200.] (PsyPsatFnTemp)
+   **   ~~~   **  Input Temperature=-3116.26
+   **   ~~~   **  Input Humidity Ratio= 1.257224E-003
+   **   ~~~   **  Resultant Temperature= -3.62E-003
+   ** Severe  ** DetermineShadowingCombinations: There are 2 surfaces which are casting surfaces and are non-convex.
+   **   ~~~   ** ...Shadowing values may be inaccurate. Check .shd report file for more surface shading details
+   **  Fatal  ** Unable to determine fan air flow rate.
+   ************* Simulation Error Summary *************
+   *************
+   *************  ** Warning ** Temperature out of range [-100. to 200.] (PsyPsatFnTemp)
+   *************  **   ~~~   **   This error occurred 1 total times;
+   *************  **   ~~~   **   Max=-3116.264404 C  Min=-3116.264404 C
+   *************
+   ************* EnergyPlus Completed Successfully-- 7 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  0.61sec
