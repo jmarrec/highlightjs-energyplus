@@ -658,7 +658,8 @@ module.exports = function (hljs) {
     name: 'energyplus',
     aliases: [
       'idf',
-      'IDF'
+      'IDF',
+      'eplus'
     ],
     case_insensitive: true,
     keywords: IDF_KEYWORDS,
