@@ -31,14 +31,14 @@ Simply load the module after loading Highlight.js.  You'll use the minified vers
 
 ```html
 <script type="text/javascript"
-  src="https://unpkg.com/highlightjs-energyplus@0.1.0/dist/energyplus.min.js"></script>
+  src="https://unpkg.com/highlightjs-energyplus@0.1.1/dist/energyplus.min.js"></script>
 ```
 
 #### JS Delivr
 
 ```html
 <script type="text/javascript"
-  src="https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.1.0/dist/energyplus.min.js"></script>
+  src="https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.1.1/dist/energyplus.min.js"></script>
 ```
 
 #### As a Browser ES6 Module
@@ -51,7 +51,7 @@ Here I'm importing only the `core` package and registering only energyplus langu
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css">
 <script type="module">
   import hljs from 'https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/es/core.min.js';
-  import energyplus from 'https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.1.0/dist/energyplus.es.min.js';
+  import energyplus from 'https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.1.1/dist/energyplus.es.min.js';
   hljs.registerLanguage('energyplus', energyplus);
   hljs.highlightAll();
 </script>
