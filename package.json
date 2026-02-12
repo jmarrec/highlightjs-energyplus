@@ -10,7 +10,7 @@
     "test-markup": "mocha test/markup",
     "test-detect": "mocha test/detect",
     "lint": "eslint src/languages/energyplus.js",
-    "version": "sed -i \"s/highlightjs-energyplus@[0-9.]*/highlightjs-energyplus@$npm_package_version/g\" README.md && git add README.md"
+    "version": "node -e \"const fs=require('fs');const f='README.md';fs.writeFileSync(f,fs.readFileSync(f,'utf8').replace(/highlightjs-energyplus@[0-9.]+/g,'highlightjs-energyplus@'+process.env.npm_package_version))\" && git add README.md"
   },
   "files": [
     "src/languages/energyplus.js",
