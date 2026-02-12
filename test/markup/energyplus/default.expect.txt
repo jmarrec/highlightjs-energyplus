@@ -8,7 +8,7 @@
   <span class="hljs-type">Timestep</span>,<span class="hljs-number">4</span><span class="hljs-operator">;</span>
 
   <span class="hljs-type">Building</span>,
-    <span class="hljs-keyword">Simple</span> One <span class="hljs-type">Zone</span> (Wireframe <span class="hljs-keyword">DXF</span>),  <span class="hljs-comment">!- Name</span>
+    Simple One Zone (Wireframe DXF),  <span class="hljs-comment">!- Name</span>
     <span class="hljs-number">0</span>,                       <span class="hljs-comment">!- North Axis {deg}</span>
     <span class="hljs-keyword">Suburbs</span>,                 <span class="hljs-comment">!- Terrain</span>
     <span class="hljs-number">0.04</span>,                    <span class="hljs-comment">!- Loads Convergence Tolerance Value {W}</span>
@@ -21,4 +21,4 @@
 
   <span class="hljs-type">SurfaceConvectionAlgorithm:Inside</span>,<span class="hljs-keyword">TARP</span><span class="hljs-operator">;</span>
 
-  <span class="hljs-type">Output:Variable</span>,*,Site <span class="hljs-keyword">Total</span> Sky Cover,<span class="hljs-keyword">hourly</span><span class="hljs-operator">;</span>
+  <span class="hljs-type">Output:Variable</span>,*,Site Total Sky Cover,<span class="hljs-keyword">hourly</span><span class="hljs-operator">;</span>
