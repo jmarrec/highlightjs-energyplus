@@ -20,4 +20,6 @@
 <span class="hljs-comment">   *************  **   ~~~   **   This error occurred 1 total times;</span>
 <span class="hljs-comment">   *************  **   ~~~   **   Max=-3116.264404 C  Min=-3116.264404 C</span>
 <span class="hljs-comment">   *************</span>
-<span class="hljs-comment">   ************* EnergyPlus Completed Successfully-- 7 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  0.61sec</span>
+<span class="hljs-comment">   ************* <span class="hljs-addition">EnergyPlus Completed Successfully</span>-- <span class="hljs-string">7 Warning</span>; <span class="hljs-keyword">0 Severe</span> Errors; Elapsed Time=00hr 00min  0.61sec</span>
+<span class="hljs-comment">
+   ************* <span class="hljs-deletion">EnergyPlus Terminated--Fatal Error Detected</span>. <span class="hljs-string">1 Warning</span>; <span class="hljs-keyword">1 Severe</span> Errors; Elapsed Time=00hr 00min  0.03sec</span>

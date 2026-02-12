@@ -27,6 +27,24 @@ module.exports = function (hljs) {
     className: 'comment',
     begin: /^\s*\*{13,}/,
     end: /$/,
+    contains: [
+      {
+        className: 'addition',
+        begin: /EnergyPlus Completed Successfully/
+      },
+      {
+        className: 'deletion',
+        begin: /EnergyPlus Terminated--Fatal Error Detected/
+      },
+      {
+        className: 'string',
+        begin: /\d+\s+Warning/
+      },
+      {
+        className: 'keyword',
+        begin: /\d+\s+Severe/
+      }
+    ],
     relevance: 0
   };
 
