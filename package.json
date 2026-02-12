@@ -13,7 +13,8 @@
     "version": "sed -i \"s/highlightjs-energyplus@[0-9.]*/highlightjs-energyplus@$npm_package_version/g\" README.md && git add README.md"
   },
   "files": [
-    "src/languages/energyplus.js"
+    "src/languages/energyplus.js",
+    "dist/"
   ],
   "repository": {
     "type": "git",
