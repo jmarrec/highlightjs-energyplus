@@ -117,6 +117,35 @@ footer p {
   Output:Variable,*,Site Total Sky Cover,hourly;
     </code></pre>
 
+    <h2>A code block for eplusout.err</h2>
+    <pre><code>
+Program Version,EnergyPlus, Version 25.2.0-6b7186059e, YMD=2026.02.12 16:08,
+   ** Warning ** Version: in IDF="26.1" not the same as expected="25.2"
+   **   ~~~   ** ..Location object=DENVER CENTENNIAL  GOLDEN   N_CO_USA DESIGN_CONDITIONS
+   **   ~~~   ** ..due to location differences, Latitude difference=[2.24] degrees, Longitude difference=[17.26] degrees.
+   ** Warning ** SetUpDesignDay: Entered DesignDay Barometric Pressure=81198 differs by more than 10% from Standard Barometric Pressure=98934.
+   **   ~~~   ** ...occurs in DesignDay=DENVER CENTENNIAL  GOLDEN   N ANN HTG 99% CONDNS DB, Standard Pressure (based on elevation) will be used.
+   ************* Testing Individual Branch Integrity
+   ************* All Branches passed integrity testing
+   ************* Beginning Simulation
+   ** Warning ** Temperature out of range [-100. to 200.] (PsyPsatFnTemp)
+   **   ~~~   **  Input Temperature=-3116.26
+   **   ~~~   **  Input Humidity Ratio= 1.257224E-003
+   **   ~~~   **  Resultant Temperature= -3.62E-003
+   ** Severe  ** DetermineShadowingCombinations: There are 2 surfaces which are casting surfaces and are non-convex.
+   **   ~~~   ** ...Shadowing values may be inaccurate. Check .shd report file for more surface shading details
+   **  Fatal  ** Unable to determine fan air flow rate.
+   ************* Simulation Error Summary *************
+   *************
+   *************  ** Warning ** Temperature out of range [-100. to 200.] (PsyPsatFnTemp)
+   *************  **   ~~~   **   This error occurred 1 total times;
+   *************  **   ~~~   **   Max=-3116.264404 C  Min=-3116.264404 C
+   *************
+   ************* EnergyPlus Completed Successfully-- 7 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  0.61sec
+
+   ************* EnergyPlus Terminated--Fatal Error Detected. 1 Warning; 1 Severe Errors; Elapsed Time=00hr 00min  0.03sec
+    </code></pre>
+
     <h2>Another code block with a different language</h2>
     <pre><code># This is a sample Python program to check if that gets formatted as python still
 from pathlib import Path
@@ -132,8 +161,10 @@ print(f"Path={p}")
 import hljs from 'https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/es/core.min.js';
 import python from 'https://unpkg.com/@highlightjs/cdn-assets@11.11.1/es/languages/python.min.js';
 import energyplus from '../dist/energyplus.es.min.js';
-hljs.registerLanguage('go', python);
+import energyplusErr from '../dist/energyplus-err.es.min.js';
+hljs.registerLanguage('python', python);
 hljs.registerLanguage('energyplus', energyplus);
+hljs.registerLanguage('energyplus-err', energyplusErr);
 hljs.highlightAll();
     </script>
   </body>
