@@ -18,7 +18,6 @@ Simply include the Highlight.js library in your webpage or Node app, then load t
 - energyplus: for IDF files (would work for OpenStudio OSM mostly)
 - energyplus-err: for eplusout.err files
 
-
 ### Static website
 
 Simply load the module after loading Highlight.js.  You'll use the minified version found in the `dist` directory.  This module is just a CDN build of the language, so it will register itself as the Javascript is loaded.
