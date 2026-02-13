@@ -46,10 +46,11 @@ npm version patch # minor, major
 git push --follow-tags
 ```
 
+---
 
 Entr watch to automatically generate when testing stuff
 
-```
+```bash
 cd ../highlight.js
 fd .js extra/highlightjs-energyplus/src/languages/ | entr -s -p "node ./tools/build.js -t cdn && node ./tools/build.js -t browser"
 ```
