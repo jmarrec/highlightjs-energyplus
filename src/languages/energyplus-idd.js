@@ -85,10 +85,17 @@ module.exports = function (hljs) {
     relevance: 5
   };
 
-  // \type annotation — defines the field data type
+  // \type annotation — defines the field data type, value styled as strong
   const FIELD_TYPE = {
-    className: 'type',
-    begin: /\\type\b/,
+    begin: [
+      /\\type/,
+      /\s+/,
+      /\S+/
+    ],
+    beginScope: {
+      1: 'type',
+      3: 'strong'
+    },
     relevance: 5
   };
 
