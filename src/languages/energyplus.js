@@ -9,6 +9,13 @@ Category: scripting
 /** @type LanguageFn */
 module.exports = function (hljs) {
 
+  const SECTION_HEADER = {
+    className: 'section',
+    begin: /^!-\s*={3,}\s*ALL OBJECTS IN CLASS:/,
+    end: /$/,
+    relevance: 5
+  };
+
   const COMMENT = { variants: [
     hljs.COMMENT('!-', '$', { relevance: 2 }),
     hljs.COMMENT('!', '$', { relevance: 0 }),
@@ -649,6 +656,7 @@ module.exports = function (hljs) {
     endScope: 'operator',
     keywords: IDF_KEYWORDS,
     contains: [
+      SECTION_HEADER,
       COMMENT,
       hljs.NUMBER_MODE,
     ]
@@ -658,8 +666,7 @@ module.exports = function (hljs) {
     name: 'energyplus',
     aliases: [
       'idf',
-      'IDF',
-      'eplus'
+      'IDF'
     ],
     case_insensitive: true,
     keywords: IDF_KEYWORDS,
@@ -670,6 +677,7 @@ module.exports = function (hljs) {
         end: /;/,
         relevance: 10
       },
+      SECTION_HEADER,
       OBJECT_BLOCK,
       COMMENT,
       hljs.NUMBER_MODE,

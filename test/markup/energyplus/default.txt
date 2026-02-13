@@ -21,4 +21,6 @@
 
   SurfaceConvectionAlgorithm:Inside,TARP;
 
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
+
   Output:Variable,*,Site Total Sky Cover,hourly;

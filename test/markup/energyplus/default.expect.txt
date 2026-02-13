@@ -21,4 +21,6 @@
 
   <span class="hljs-type">SurfaceConvectionAlgorithm:Inside</span>,<span class="hljs-keyword">TARP</span><span class="hljs-operator">;</span>
 
+<span class="hljs-section">!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========</span>
+
   <span class="hljs-type">Output:Variable</span>,*,Site Total Sky Cover,<span class="hljs-keyword">hourly</span><span class="hljs-operator">;</span>
