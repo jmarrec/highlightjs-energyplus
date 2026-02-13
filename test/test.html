@@ -70,12 +70,17 @@ footer p {
     </style>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="../dist/energyplus.min.js"></script>
+    <script src="../dist/energyplus-err.min.js"></script>
+    <script src="../dist/energyplus-idd.min.js"></script>
   </head>
 
   <body>
     <header id="header">
       <img src="https://effibem.com/images/logo.png" alt="EffiBEM Logo">
-      <h1>A highlight.js language grammar for EnergyPlus IDF - ES6 Module Test</h1>
+      <h1>A highlight.js language grammar for EnergyPlus IDF - Script Tag Test</h1>
     </header>
 
     <h2>This is detected as being EnergyPlus grammar</h2>
@@ -314,16 +319,7 @@ print(f"Path={p}")
       <p>EffiBEM - highlightjs-energyplus | Copyright &copy; 2026 <a href="https://effibem.com" target="_blank">EffiBEM EURL</a></p>
     </footer>
 
-    <script type="module">
-import hljs from 'https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/es/core.min.js';
-import python from 'https://unpkg.com/@highlightjs/cdn-assets@11.11.1/es/languages/python.min.js';
-import energyplus from '../dist/energyplus.es.min.js';
-import energyplusErr from '../dist/energyplus-err.es.min.js';
-import energyplusIdd from '../dist/energyplus-idd.es.min.js';
-hljs.registerLanguage('python', python);
-hljs.registerLanguage('energyplus', energyplus);
-hljs.registerLanguage('energyplus-err', energyplusErr);
-hljs.registerLanguage('energyplus-idd', energyplusIdd);
+    <script>
 hljs.highlightAll();
     </script>
   </body>
