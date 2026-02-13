@@ -99,10 +99,24 @@ module.exports = function (hljs) {
     relevance: 5
   };
 
+  // \reference, \reference-class-name, \object-list, \external-list with value as link
+  const FIELD_REFERENCE = {
+    begin: [
+      /\\(?:reference-class-name|reference|object-list|external-list)/,
+      /\s+/,
+      /\S+/
+    ],
+    beginScope: {
+      1: 'attribute',
+      3: 'link'
+    },
+    relevance: 2
+  };
+
   // Field-level metadata annotations
   const FIELD_ATTRIBUTE = {
     className: 'attribute',
-    begin: /\\(?:minimum>?|maximum<?|units|ip-units|unitsBasedOnField|retaincase|object-list|reference-class-name|reference|external-list)\b/,
+    begin: /\\(?:minimum>?|maximum<?|units|ip-units|unitsBasedOnField|retaincase)\b/,
     relevance: 2
   };
 
@@ -138,6 +152,7 @@ module.exports = function (hljs) {
       OBJECT_EXTENSIBLE,
       FIELD_KEYWORD,
       FIELD_TYPE,
+      FIELD_REFERENCE,
       FIELD_ATTRIBUTE,
       FIELD_ID,
       OBJECT_CLASS,

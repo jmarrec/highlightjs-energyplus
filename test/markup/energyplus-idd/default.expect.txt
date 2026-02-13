@@ -19,12 +19,12 @@
       <span class="hljs-title function_">\min-fields</span> <span class="hljs-number">7</span>
   <span class="hljs-variable">A1</span>, <span class="hljs-keyword">\field</span> <span class="hljs-string">Do Zone Sizing Calculation</span>
       <span class="hljs-comment">\note If Yes, Zone sizing is accomplished from corresponding Sizing:Zone objects.</span>
-      <span class="hljs-type">\type</span> choice
+      <span class="hljs-type">\type</span> <span class="hljs-strong">choice</span>
       <span class="hljs-keyword">\key</span> Yes
       <span class="hljs-keyword">\key</span> No
       <span class="hljs-keyword">\default</span> No
   <span class="hljs-variable">N1</span>; <span class="hljs-keyword">\field</span> <span class="hljs-string">Maximum Number of HVAC Sizing Simulation Passes</span>
-      <span class="hljs-type">\type</span> integer
+      <span class="hljs-type">\type</span> <span class="hljs-strong">integer</span>
       <span class="hljs-attribute">\minimum</span> <span class="hljs-number">1</span>
       <span class="hljs-keyword">\default</span> <span class="hljs-number">1</span>
 
@@ -40,19 +40,19 @@
   <span class="hljs-variable">A1</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Name</span>
        <span class="hljs-keyword">\required-field</span>
        <span class="hljs-attribute">\retaincase</span>
-       <span class="hljs-type">\type</span> alpha
-       <span class="hljs-attribute">\reference</span> HeatExchangerNames
-       <span class="hljs-attribute">\reference-class-name</span> AllHeatExchangers
+       <span class="hljs-type">\type</span> <span class="hljs-strong">alpha</span>
+       <span class="hljs-attribute">\reference</span> <span class="hljs-link">HeatExchangerNames</span>
+       <span class="hljs-attribute">\reference-class-name</span> <span class="hljs-link">AllHeatExchangers</span>
   <span class="hljs-variable">A2</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Zone Name</span>
        <span class="hljs-comment">\note Zone the heat exchanger is located in</span>
-       <span class="hljs-type">\type</span> object-list
-       <span class="hljs-attribute">\object-list</span> ZoneNames
+       <span class="hljs-type">\type</span> <span class="hljs-strong">object-list</span>
+       <span class="hljs-attribute">\object-list</span> <span class="hljs-link">ZoneNames</span>
   <span class="hljs-variable">A3</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Availability Schedule Name</span>
-       <span class="hljs-type">\type</span> object-list
-       <span class="hljs-attribute">\object-list</span> ScheduleNames
-       <span class="hljs-attribute">\external-list</span> autoRDDvariable
+       <span class="hljs-type">\type</span> <span class="hljs-strong">object-list</span>
+       <span class="hljs-attribute">\object-list</span> <span class="hljs-link">ScheduleNames</span>
+       <span class="hljs-attribute">\external-list</span> <span class="hljs-link">autoRDDvariable</span>
   <span class="hljs-variable">A4</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Heat Transfer Mode</span>
-       <span class="hljs-type">\type</span> choice
+       <span class="hljs-type">\type</span> <span class="hljs-strong">choice</span>
        <span class="hljs-keyword">\key</span> Convection
        <span class="hljs-keyword">\key</span> Radiation
        <span class="hljs-keyword">\key</span> Combined
@@ -62,52 +62,52 @@
        <span class="hljs-comment">\note Total heat transfer capacity at design conditions</span>
        <span class="hljs-attribute">\units</span> W
        <span class="hljs-attribute">\ip-units</span> Btu/h
-       <span class="hljs-type">\type</span> real
+       <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
        <span class="hljs-keyword">\autosizable</span>
        <span class="hljs-attribute">\minimum</span> <span class="hljs-number">0.0</span>
        <span class="hljs-keyword">\default</span> autosize
   <span class="hljs-variable">N2</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Design Effectiveness</span>
-       <span class="hljs-type">\type</span> real
+       <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
        <span class="hljs-attribute">\minimum</span>&gt; <span class="hljs-number">0.0</span>
        <span class="hljs-attribute">\maximum</span>&lt; <span class="hljs-number">1.0</span>
        <span class="hljs-keyword">\default</span> <span class="hljs-number">0.75</span>
   <span class="hljs-variable">N3</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Inlet Temperature</span>
        <span class="hljs-attribute">\units</span> C
-       <span class="hljs-type">\type</span> real
+       <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
        <span class="hljs-attribute">\minimum</span> -<span class="hljs-number">100.0</span>
        <span class="hljs-attribute">\maximum</span> <span class="hljs-number">200.0</span>
   <span class="hljs-variable">N4</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Flow Rate</span>
        <span class="hljs-comment">\note Volumetric flow rate through the exchanger</span>
        <span class="hljs-attribute">\units</span> m3/s
        <span class="hljs-attribute">\ip-units</span> gal/min
-       <span class="hljs-type">\type</span> real
+       <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
        <span class="hljs-keyword">\autocalculatable</span>
        <span class="hljs-attribute">\minimum</span>&gt; <span class="hljs-number">0</span>
        <span class="hljs-keyword">\default</span> autocalculate
   <span class="hljs-variable">N5</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Pressure Drop</span>
        <span class="hljs-attribute">\units</span> Pa
        <span class="hljs-attribute">\unitsBasedOnField</span> <span class="hljs-variable">A4</span>
-       <span class="hljs-type">\type</span> real
+       <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
        <span class="hljs-attribute">\minimum</span> <span class="hljs-number">0</span>
        <span class="hljs-attribute">\maximum</span> <span class="hljs-number">5.0E+05</span>
   <span class="hljs-variable">N6</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Convergence Tolerance</span>
-       <span class="hljs-type">\type</span> real
+       <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
        <span class="hljs-attribute">\minimum</span>&gt; <span class="hljs-number">0.0</span>
        <span class="hljs-attribute">\maximum</span> <span class="hljs-number">0.5</span>
        <span class="hljs-keyword">\default</span> <span class="hljs-number">0.001</span>
   <span class="hljs-variable">A5</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">End-Use Subcategory</span>
-       <span class="hljs-type">\type</span> alpha
+       <span class="hljs-type">\type</span> <span class="hljs-strong">alpha</span>
        <span class="hljs-attribute">\retaincase</span>
        <span class="hljs-keyword">\default</span> General
        <span class="hljs-title function_">\begin-extensible</span>
   <span class="hljs-variable">A6</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Inlet Node Name 1</span>
        <span class="hljs-keyword">\required-field</span>
-       <span class="hljs-type">\type</span> node
+       <span class="hljs-type">\type</span> <span class="hljs-strong">node</span>
   <span class="hljs-variable">A7</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Outlet Node Name 2</span>
        <span class="hljs-keyword">\required-field</span>
-       <span class="hljs-type">\type</span> node
+       <span class="hljs-type">\type</span> <span class="hljs-strong">node</span>
   <span class="hljs-variable">N7</span> ; <span class="hljs-keyword">\field</span> <span class="hljs-string">Branch Flow Fraction</span>
-       <span class="hljs-type">\type</span> real
+       <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
        <span class="hljs-attribute">\minimum</span> <span class="hljs-number">0.0</span>
        <span class="hljs-attribute">\maximum</span> <span class="hljs-number">1.0</span>
        <span class="hljs-keyword">\default</span> <span class="hljs-number">1.0</span>
@@ -121,29 +121,29 @@
       <span class="hljs-title function_">\extensible:2</span>
   <span class="hljs-variable">A1</span>, <span class="hljs-keyword">\field</span> <span class="hljs-string">Name</span>
       <span class="hljs-keyword">\required-field</span>
-      <span class="hljs-type">\type</span> alpha
-      <span class="hljs-attribute">\reference</span> SpectrumDataNames
+      <span class="hljs-type">\type</span> <span class="hljs-strong">alpha</span>
+      <span class="hljs-attribute">\reference</span> <span class="hljs-link">SpectrumDataNames</span>
   <span class="hljs-variable">A2</span>, <span class="hljs-keyword">\field</span> <span class="hljs-string">Spectrum Data Type</span>
       <span class="hljs-keyword">\required-field</span>
-      <span class="hljs-type">\type</span> choice
+      <span class="hljs-type">\type</span> <span class="hljs-strong">choice</span>
       <span class="hljs-keyword">\key</span> Solar
       <span class="hljs-keyword">\key</span> Visible
   <span class="hljs-variable">N1</span>, <span class="hljs-keyword">\field</span> <span class="hljs-string">Wavelength</span>
-      <span class="hljs-type">\type</span> real
+      <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
       <span class="hljs-attribute">\units</span> micron
   <span class="hljs-variable">N2</span>, <span class="hljs-keyword">\field</span> <span class="hljs-string">Spectrum</span>
-      <span class="hljs-type">\type</span> real
+      <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
   <span class="hljs-variable">N3</span>, <span class="hljs-keyword">\field</span> <span class="hljs-string">Wavelength</span>
-      <span class="hljs-type">\type</span> real
+      <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
       <span class="hljs-attribute">\units</span> micron
   <span class="hljs-variable">N4</span>, <span class="hljs-keyword">\field</span> <span class="hljs-string">Spectrum</span>
-      <span class="hljs-type">\type</span> real
+      <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
   <span class="hljs-variable">N5</span>, <span class="hljs-keyword">\field</span> <span class="hljs-string">Wavelength</span>
       <span class="hljs-title function_">\begin-extensible</span>
-      <span class="hljs-type">\type</span> real
+      <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
       <span class="hljs-attribute">\units</span> micron
   <span class="hljs-variable">N6</span>, <span class="hljs-keyword">\field</span> <span class="hljs-string">Spectrum</span>
-      <span class="hljs-type">\type</span> real
+      <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
   <span class="hljs-variable">N7</span>, <span class="hljs-variable">N8</span>,       <span class="hljs-comment">\note fields as indicated</span>
   <span class="hljs-variable">N9</span>, <span class="hljs-variable">N10</span>,      <span class="hljs-comment">\note fields as indicated</span>
   <span class="hljs-variable">N11</span>, <span class="hljs-variable">N12</span>,     <span class="hljs-comment">\note fields as indicated</span>
