@@ -127,10 +127,17 @@ module.exports = function (hljs) {
     relevance: 2
   };
 
+  // Units annotations
+  const FIELD_UNITS = {
+    className: 'property',
+    begin: /\\(?:units|ip-units|unitsBasedOnField)\b/,
+    relevance: 2
+  };
+
   // Field-level metadata annotations
   const FIELD_ATTRIBUTE = {
     className: 'attribute',
-    begin: /\\(?:minimum>?|maximum<?|units|ip-units|unitsBasedOnField|retaincase)\b/,
+    begin: /\\(?:minimum>?|maximum<?|retaincase)\b/,
     relevance: 2
   };
 
@@ -142,8 +149,14 @@ module.exports = function (hljs) {
   };
 
   // Semicolon terminates an object definition
-  const TERMINATOR = {
+  const COMMA = {
     className: 'punctuation',
+    begin: /,/,
+    relevance: 0
+  };
+
+  const SEMICOLON = {
+    className: 'operator',
     begin: /;/,
     relevance: 0
   };
@@ -176,9 +189,11 @@ module.exports = function (hljs) {
       FIELD_KEY,
       FIELD_TYPE,
       FIELD_REFERENCE,
+      FIELD_UNITS,
       FIELD_ATTRIBUTE,
       FIELD_ID,
-      TERMINATOR,
+      COMMA,
+      SEMICOLON,
       OBJECT_CLASS,
       NUMBER
     ]
