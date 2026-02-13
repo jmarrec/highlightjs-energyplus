@@ -28,7 +28,12 @@ jobs:
           git log "${REF}..HEAD" --pretty=format:'- %s' >> "$GITHUB_OUTPUT"
           echo "" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
+
       - name: Create GitHub release
-        run: gh release create "${{ github.ref_name }}" --title "${{ github.ref_name }}" --notes "${{ steps.changelog.outputs.body }}"
+        run: |
+          printf "%s\n" "${{ steps.changelog.outputs.body }}" > RELEASE_NOTES.txt
+          gh release create "${{ github.ref_name }}" \
+            --title "${{ github.ref_name }}" \
+            --notes-file RELEASE_NOTES.txt
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
