@@ -9,7 +9,7 @@
       <span class="hljs-comment">\memo Specifies the EnergyPlus version of the IDF file.</span>
       <span class="hljs-built_in">\unique-object</span>
       <span class="hljs-built_in">\format</span> singleLine
-  <span class="hljs-variable">A1</span> ; <span class="hljs-keyword">\field</span> <span class="hljs-string">Version Identifier</span>
+  <span class="hljs-variable">A1</span> <span class="hljs-punctuation">;</span> <span class="hljs-keyword">\field</span> <span class="hljs-string">Version Identifier</span>
       <span class="hljs-keyword">\default</span> <span class="hljs-number">25.2</span>
 
 <span class="hljs-title">SimulationControl</span>,
@@ -23,7 +23,7 @@
       <span class="hljs-keyword">\key</span> Yes
       <span class="hljs-keyword">\key</span> No
       <span class="hljs-keyword">\default</span> No
-  <span class="hljs-variable">N1</span>; <span class="hljs-keyword">\field</span> <span class="hljs-string">Maximum Number of HVAC Sizing Simulation Passes</span>
+  <span class="hljs-variable">N1</span><span class="hljs-punctuation">;</span> <span class="hljs-keyword">\field</span> <span class="hljs-string">Maximum Number of HVAC Sizing Simulation Passes</span>
       <span class="hljs-type">\type</span> <span class="hljs-strong">integer</span>
       <span class="hljs-attribute">\minimum</span> <span class="hljs-number">1</span>
       <span class="hljs-keyword">\default</span> <span class="hljs-number">1</span>
@@ -106,7 +106,7 @@
   <span class="hljs-variable">A7</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Outlet Node Name 2</span>
        <span class="hljs-keyword">\required-field</span>
        <span class="hljs-type">\type</span> <span class="hljs-strong">node</span>
-  <span class="hljs-variable">N7</span> ; <span class="hljs-keyword">\field</span> <span class="hljs-string">Branch Flow Fraction</span>
+  <span class="hljs-variable">N7</span> <span class="hljs-punctuation">;</span> <span class="hljs-keyword">\field</span> <span class="hljs-string">Branch Flow Fraction</span>
        <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
        <span class="hljs-attribute">\minimum</span> <span class="hljs-number">0.0</span>
        <span class="hljs-attribute">\maximum</span> <span class="hljs-number">1.0</span>
@@ -152,4 +152,4 @@
   <span class="hljs-variable">N17</span>, <span class="hljs-variable">N18</span>,     <span class="hljs-comment">\note fields as indicated</span>
   <span class="hljs-variable">N19</span>, <span class="hljs-variable">N20</span>,     <span class="hljs-comment">\note fields as indicated</span>
   <span class="hljs-variable">N21</span>, <span class="hljs-variable">N22</span>,     <span class="hljs-comment">\note fields as indicated</span>
-  <span class="hljs-variable">N23</span>, <span class="hljs-variable">N24</span>;     <span class="hljs-comment">\note fields as indicated</span>
+  <span class="hljs-variable">N23</span>, <span class="hljs-variable">N24</span><span class="hljs-punctuation">;</span>     <span class="hljs-comment">\note fields as indicated</span>

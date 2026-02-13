@@ -127,6 +127,13 @@ module.exports = function (hljs) {
     relevance: 5
   };
 
+  // Semicolon terminates an object definition
+  const TERMINATOR = {
+    className: 'punctuation',
+    begin: /;/,
+    relevance: 0
+  };
+
   // Object class name: alphanumeric (with colons) at start of line, followed by ,
   const OBJECT_CLASS = {
     className: 'title',
@@ -155,6 +162,7 @@ module.exports = function (hljs) {
       FIELD_REFERENCE,
       FIELD_ATTRIBUTE,
       FIELD_ID,
+      TERMINATOR,
       OBJECT_CLASS,
       NUMBER
     ]
