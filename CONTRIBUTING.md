@@ -46,6 +46,14 @@ npm version patch # minor, major
 git push --follow-tags
 ```
 
+
+Entr watch to automatically generate when testing stuff
+
+```
+cd ../highlight.js
+fd .js extra/highlightjs-energyplus/src/languages/ | entr -s -p "node ./tools/build.js -t cdn && node ./tools/build.js -t browser"
+```
+
 ### ESLint rules
 
 `eslint.config.js` enforces formatting on `src/languages/*.js`:
