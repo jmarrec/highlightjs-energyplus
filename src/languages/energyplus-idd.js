@@ -65,17 +65,37 @@ module.exports = function (hljs) {
     relevance: 5
   };
 
-  // Important annotations that affect field behavior
-  const IMPORTANT_ANNOTATION = {
-    className: 'keyword',
-    begin: /\\(?:default|required-field|autosizable|autocalculatable|begin-extensible|deprecated|key|unique-object|required-object|obsolete)\b/,
+  // Object-level annotations (apply to the whole object, appear before fields)
+  const OBJECT_ANNOTATION = {
+    className: 'built_in',
+    begin: /\\(?:unique-object|required-object|obsolete|format)\b/,
     relevance: 5
   };
 
-  // Minor metadata annotations
-  const MINOR_ANNOTATION = {
+  const OBJECT_EXTENSIBLE = {
+    className: 'title.function',
+    begin: /\\(?:min-fields|begin-extensible|extensible:\s*\d+)\b/,
+    relevance: 5
+  };
+
+  // Field-level annotations that affect field behavior
+  const FIELD_KEYWORD = {
+    className: 'keyword',
+    begin: /\\(?:default|required-field|autosizable|autocalculatable|deprecated|key)\b/,
+    relevance: 5
+  };
+
+  // \type annotation — defines the field data type
+  const FIELD_TYPE = {
+    className: 'type',
+    begin: /\\type\b/,
+    relevance: 5
+  };
+
+  // Field-level metadata annotations
+  const FIELD_ATTRIBUTE = {
     className: 'attribute',
-    begin: /\\(?:type|minimum>?|maximum<?|units|ip-units|unitsBasedOnField|retaincase|object-list|reference-class-name|reference|external-list|format|min-fields|extensible:\d+)\b/,
+    begin: /\\(?:minimum>?|maximum<?|units|ip-units|unitsBasedOnField|retaincase|object-list|reference-class-name|reference|external-list)\b/,
     relevance: 2
   };
 
@@ -107,8 +127,11 @@ module.exports = function (hljs) {
       GROUP,
       MEMO_NOTE,
       FIELD_ANNOTATION,
-      IMPORTANT_ANNOTATION,
-      MINOR_ANNOTATION,
+      OBJECT_ANNOTATION,
+      OBJECT_EXTENSIBLE,
+      FIELD_KEYWORD,
+      FIELD_TYPE,
+      FIELD_ATTRIBUTE,
       FIELD_ID,
       OBJECT_CLASS,
       NUMBER
