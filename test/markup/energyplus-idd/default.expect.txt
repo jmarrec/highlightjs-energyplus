@@ -10,7 +10,7 @@
       <span class="hljs-built_in">\unique-object</span>
       <span class="hljs-built_in">\format</span> singleLine
   <span class="hljs-variable">A1</span> <span class="hljs-punctuation">;</span> <span class="hljs-keyword">\field</span> <span class="hljs-string">Version Identifier</span>
-      <span class="hljs-keyword">\default</span> <span class="hljs-number">25.2</span>
+      <span class="hljs-symbol">\default</span> <span class="hljs-number">25.2</span>
 
 <span class="hljs-title">SimulationControl</span>,
       <span class="hljs-built_in">\unique-object</span>
@@ -20,13 +20,13 @@
   <span class="hljs-variable">A1</span>, <span class="hljs-keyword">\field</span> <span class="hljs-string">Do Zone Sizing Calculation</span>
       <span class="hljs-comment">\note If Yes, Zone sizing is accomplished from corresponding Sizing:Zone objects.</span>
       <span class="hljs-type">\type</span> <span class="hljs-strong">choice</span>
-      <span class="hljs-keyword">\key</span> Yes
-      <span class="hljs-keyword">\key</span> No
-      <span class="hljs-keyword">\default</span> No
+      <span class="hljs-literal">\key</span> Yes
+      <span class="hljs-literal">\key</span> No
+      <span class="hljs-symbol">\default</span> No
   <span class="hljs-variable">N1</span><span class="hljs-punctuation">;</span> <span class="hljs-keyword">\field</span> <span class="hljs-string">Maximum Number of HVAC Sizing Simulation Passes</span>
       <span class="hljs-type">\type</span> <span class="hljs-strong">integer</span>
       <span class="hljs-attribute">\minimum</span> <span class="hljs-number">1</span>
-      <span class="hljs-keyword">\default</span> <span class="hljs-number">1</span>
+      <span class="hljs-symbol">\default</span> <span class="hljs-number">1</span>
 
 <span class="hljs-section">\group Thermal Zones and Surfaces</span>
 
@@ -53,10 +53,10 @@
        <span class="hljs-attribute">\external-list</span> <span class="hljs-link">autoRDDvariable</span>
   <span class="hljs-variable">A4</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Heat Transfer Mode</span>
        <span class="hljs-type">\type</span> <span class="hljs-strong">choice</span>
-       <span class="hljs-keyword">\key</span> Convection
-       <span class="hljs-keyword">\key</span> Radiation
-       <span class="hljs-keyword">\key</span> Combined
-       <span class="hljs-keyword">\default</span> Convection
+       <span class="hljs-literal">\key</span> Convection
+       <span class="hljs-literal">\key</span> Radiation
+       <span class="hljs-literal">\key</span> Combined
+       <span class="hljs-symbol">\default</span> Convection
        <span class="hljs-keyword">\deprecated</span>
   <span class="hljs-variable">N1</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Design Capacity</span>
        <span class="hljs-comment">\note Total heat transfer capacity at design conditions</span>
@@ -65,12 +65,12 @@
        <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
        <span class="hljs-keyword">\autosizable</span>
        <span class="hljs-attribute">\minimum</span> <span class="hljs-number">0.0</span>
-       <span class="hljs-keyword">\default</span> autosize
+       <span class="hljs-symbol">\default</span> autosize
   <span class="hljs-variable">N2</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Design Effectiveness</span>
        <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
        <span class="hljs-attribute">\minimum</span>&gt; <span class="hljs-number">0.0</span>
        <span class="hljs-attribute">\maximum</span>&lt; <span class="hljs-number">1.0</span>
-       <span class="hljs-keyword">\default</span> <span class="hljs-number">0.75</span>
+       <span class="hljs-symbol">\default</span> <span class="hljs-number">0.75</span>
   <span class="hljs-variable">N3</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Inlet Temperature</span>
        <span class="hljs-attribute">\units</span> C
        <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
@@ -83,7 +83,7 @@
        <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
        <span class="hljs-keyword">\autocalculatable</span>
        <span class="hljs-attribute">\minimum</span>&gt; <span class="hljs-number">0</span>
-       <span class="hljs-keyword">\default</span> autocalculate
+       <span class="hljs-symbol">\default</span> autocalculate
   <span class="hljs-variable">N5</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Pressure Drop</span>
        <span class="hljs-attribute">\units</span> Pa
        <span class="hljs-attribute">\unitsBasedOnField</span> <span class="hljs-variable">A4</span>
@@ -94,11 +94,11 @@
        <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
        <span class="hljs-attribute">\minimum</span>&gt; <span class="hljs-number">0.0</span>
        <span class="hljs-attribute">\maximum</span> <span class="hljs-number">0.5</span>
-       <span class="hljs-keyword">\default</span> <span class="hljs-number">0.001</span>
+       <span class="hljs-symbol">\default</span> <span class="hljs-number">0.001</span>
   <span class="hljs-variable">A5</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">End-Use Subcategory</span>
        <span class="hljs-type">\type</span> <span class="hljs-strong">alpha</span>
        <span class="hljs-attribute">\retaincase</span>
-       <span class="hljs-keyword">\default</span> General
+       <span class="hljs-symbol">\default</span> General
        <span class="hljs-title function_">\begin-extensible</span>
   <span class="hljs-variable">A6</span> , <span class="hljs-keyword">\field</span> <span class="hljs-string">Inlet Node Name 1</span>
        <span class="hljs-keyword">\required-field</span>
@@ -110,7 +110,7 @@
        <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
        <span class="hljs-attribute">\minimum</span> <span class="hljs-number">0.0</span>
        <span class="hljs-attribute">\maximum</span> <span class="hljs-number">1.0</span>
-       <span class="hljs-keyword">\default</span> <span class="hljs-number">1.0</span>
+       <span class="hljs-symbol">\default</span> <span class="hljs-number">1.0</span>
 
 <span class="hljs-meta">! An example of an object that has a bunch of extra useless fields at the end for IDFEditor
 </span><span class="hljs-title">Site:SpectrumData</span>,
@@ -126,8 +126,8 @@
   <span class="hljs-variable">A2</span>, <span class="hljs-keyword">\field</span> <span class="hljs-string">Spectrum Data Type</span>
       <span class="hljs-keyword">\required-field</span>
       <span class="hljs-type">\type</span> <span class="hljs-strong">choice</span>
-      <span class="hljs-keyword">\key</span> Solar
-      <span class="hljs-keyword">\key</span> Visible
+      <span class="hljs-literal">\key</span> Solar
+      <span class="hljs-literal">\key</span> Visible
   <span class="hljs-variable">N1</span>, <span class="hljs-keyword">\field</span> <span class="hljs-string">Wavelength</span>
       <span class="hljs-type">\type</span> <span class="hljs-strong">real</span>
       <span class="hljs-attribute">\units</span> micron

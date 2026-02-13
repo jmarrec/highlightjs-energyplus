@@ -81,8 +81,22 @@ module.exports = function (hljs) {
   // Field-level annotations that affect field behavior
   const FIELD_KEYWORD = {
     className: 'keyword',
-    begin: /\\(?:default|required-field|autosizable|autocalculatable|deprecated|key)\b/,
+    begin: /\\(?:required-field|autosizable|autocalculatable|deprecated)\b/,
     relevance: 5
+  };
+
+  // \default — default value
+  const FIELD_DEFAULT = {
+    className: 'symbol',
+    begin: /\\default\b/,
+    relevance: 2
+  };
+
+  // \key — enum choice values
+  const FIELD_KEY = {
+    className: 'literal',
+    begin: /\\key\b/,
+    relevance: 2
   };
 
   // \type annotation — defines the field data type, value styled as strong
@@ -158,6 +172,8 @@ module.exports = function (hljs) {
       OBJECT_ANNOTATION,
       OBJECT_EXTENSIBLE,
       FIELD_KEYWORD,
+      FIELD_DEFAULT,
+      FIELD_KEY,
       FIELD_TYPE,
       FIELD_REFERENCE,
       FIELD_ATTRIBUTE,
