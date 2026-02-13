@@ -37,18 +37,18 @@ Simply load the module after loading Highlight.js.  You'll use the minified vers
 
 ```html
 <script type="text/javascript"
-  src="https://unpkg.com/highlightjs-energyplus@0.2.0/dist/energyplus.min.js"></script>
+  src="https://unpkg.com/highlightjs-energyplus@0.2.1/dist/energyplus.min.js"></script>
 <script type="text/javascript"
-  src="https://unpkg.com/highlightjs-energyplus@0.2.0/dist/energyplus-err.min.js"></script>
+  src="https://unpkg.com/highlightjs-energyplus@0.2.1/dist/energyplus-err.min.js"></script>
 ```
 
 #### JS Delivr
 
 ```html
 <script type="text/javascript"
-  src="https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.2.0/dist/energyplus.min.js"></script>
+  src="https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.2.1/dist/energyplus.min.js"></script>
 <script type="text/javascript"
-  src="https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.2.0/dist/energyplus-err.min.js"></script>
+  src="https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.2.1/dist/energyplus-err.min.js"></script>
 ```
 
 #### As a Browser ES6 Module
@@ -63,8 +63,8 @@ Here I'm importing only the `core` package and registering only energyplus langu
 <script type="module">
 import hljs from 'https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/es/core.min.js';
 // Register the energyplus language grammar
-import energyplus from 'https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.2.0/dist/energyplus.es.min.js';
-import energyplusErr from 'https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.2.0/dist/energyplus-err.es.min.js';
+import energyplus from 'https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.2.1/dist/energyplus.es.min.js';
+import energyplusErr from 'https://cdn.jsdelivr.net/gh/jmarrec/highlightjs-energyplus@0.2.1/dist/energyplus-err.es.min.js';
 hljs.registerLanguage('energyplus', energyplus);
 hljs.registerLanguage('energyplus-err', energyplusErr);
 
