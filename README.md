@@ -109,11 +109,7 @@ Highlight.js is released under the [BSD 3-Clause License](https://github.com/hig
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-1. Fork this project.
-2. Create a work branch (`git checkout -b my-branch`).
-3. Commit your changes (`git commit -m 'my changes'`).
-4. Push the branch (`git push origin my-branch`).
-5. Open a Pull Request from your fork back to this repository.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, commands, and architecture details.
 
 ## Links
 
