@@ -39,6 +39,13 @@ This repo is symlinked into `../highlight.js/extra/highlightjs-energyplus`. To r
 cd ../highlight.js && node tools/build.js -t cdn
 ```
 
+To release
+
+```bash
+npm version patch # minor, major
+git push --follow-tags
+```
+
 ### ESLint rules
 
 `eslint.config.js` enforces formatting on `src/languages/*.js`:
