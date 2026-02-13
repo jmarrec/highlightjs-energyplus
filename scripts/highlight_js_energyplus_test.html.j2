@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EffiBEM - highlightjs-energyplus</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="https://effibem.com/images/ico/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="https://effibem.com/images/ico/favicon.svg">
+    <link rel="shortcut icon" href="https://effibem.com/images/ico/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://effibem.com/images/ico/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="EffiBEM">
+    <link rel="manifest" href="https://effibem.com/images/ico/site.webmanifest">
+
+    <style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+#header {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: sans-serif;
+  flex-shrink: 0;
+}
+#header img {
+  height: 32px;
+  margin-right: 12px;
+}
+#header h1 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 20px;
+  color: #ff4136;
+}
+h2 {
+  color: #45aed6;
+}
+
+footer {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  background: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+  font-family: sans-serif;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+footer a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+footer p {
+  margin: 0;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-light.min.css">
+{% if not use_es6 %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="../dist/energyplus.min.js"></script>
+    <script src="../dist/energyplus-err.min.js"></script>
+    <script src="../dist/energyplus-idd.min.js"></script>
+{% endif %}
+  </head>
+
+  <body>
+    <header id="header">
+      <img src="https://effibem.com/images/logo.png" alt="EffiBEM Logo">
+      <h1>A highlight.js language grammar for EnergyPlus IDF - {{ title }}</h1>
+    </header>
+
+    <h2>This is detected as being EnergyPlus grammar</h2>
+    <pre><code>{{ idf_content | safe }}</code></pre>
+
+    <h2>A code block for eplusout.err</h2>
+    <pre><code>{{ err_content | safe }}</code></pre>
+
+    <h2>A code block for EnergyPlus IDD</h2>
+    <pre><code>{{ idd_content | safe }}</code></pre>
+
+    <h2>Another code block with a different language</h2>
+    <pre><code># This is a sample Python program to check if that gets formatted as python still
+from pathlib import Path
+p = Path('.').resolve()
+print(f"Path={p}")
+    </code></pre>
+
+    <footer>
+      <p>EffiBEM - highlightjs-energyplus | Copyright &copy; 2026 <a href="https://effibem.com" target="_blank">EffiBEM EURL</a></p>
+    </footer>
+
+{% if use_es6 -%}
+    <script type="module">
+import hljs from 'https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/es/core.min.js';
+import python from 'https://unpkg.com/@highlightjs/cdn-assets@11.11.1/es/languages/python.min.js';
+import energyplus from '../dist/energyplus.es.min.js';
+import energyplusErr from '../dist/energyplus-err.es.min.js';
+import energyplusIdd from '../dist/energyplus-idd.es.min.js';
+hljs.registerLanguage('python', python);
+hljs.registerLanguage('energyplus', energyplus);
+hljs.registerLanguage('energyplus-err', energyplusErr);
+hljs.registerLanguage('energyplus-idd', energyplusIdd);
+hljs.highlightAll();
+    </script>
+{% else -%}
+    <script>
+hljs.highlightAll();
+    </script>
+{% endif -%}
+  </body>
+</html>

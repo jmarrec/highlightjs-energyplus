@@ -26,6 +26,10 @@ elif platform.system() == "Linux":
 elif platform.system() == "Windows":
     DEFAULT_IDD_PATH = Path("C:/EnergyPlus-25-2-0/Energy+.idd")
 
+TEST_HTML_TEMPLATE_NAME = "highlight_js_energyplus_test.html.j2"
+TEST_HTML_TEMPLATE_PATH = SCRIPTS_DIR / TEST_HTML_TEMPLATE_NAME
+TEST_DIR = ROOT_DIR / "test"
+LANGUAGES = ["energyplus", "energyplus-err", "energyplus-idd"]
 
 def pretty_js_array(keywords, width=120, indent=4):
     """Format a list of strings as a pretty-printed JS array.
@@ -136,6 +140,52 @@ def generate_highlightjs(idd_path: Path = DEFAULT_IDD_PATH, use_sample: bool = F
     return content
 
 
+def read_default_markup_for_language(language: str):
+    if language not in LANGUAGES:
+        raise ValueError(f"'{language}' is not in {LANGUAGES}")
+
+    fpath = TEST_DIR / "markup" / language / "default.txt"
+    if not fpath.is_file():
+        raise IOError(f"{fpath} does not exist for language='{language}'")
+
+    return fpath.read_text()
+
+
+def generate_test_html():
+    """Generate a test HTML file for the highlight.js language definition."""
+
+    env = Environment(
+        loader=FileSystemLoader(SCRIPTS_DIR),
+        keep_trailing_newline=True,
+    )
+
+    template = env.get_template(TEST_HTML_TEMPLATE_NAME)
+
+
+    idf_content = read_default_markup_for_language(language="energyplus")
+    err_content = read_default_markup_for_language(language="energyplus-err")
+    idd_content = read_default_markup_for_language(language="energyplus-idd")
+
+    test_htmls = {
+        "test-es6.html": True,
+        "test.html": False,
+    }
+
+    for test_html_name, use_es6 in test_htmls.items():
+
+        title = 'ES6 Module Test' if use_es6 else 'Script Tag Test'
+        content = template.render(
+            use_es6=use_es6,
+            title=title,
+            idf_content=idf_content,
+            err_content=err_content,
+            idd_content=idd_content
+        )
+        out_file = TEST_DIR / test_html_name
+        out_file.write_text(content)
+        print(f"Wrote {out_file} {'with ES6' if use_es6 else 'without ES6'}")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate highlight.js language definition for EnergyPlus IDF files")
     parser.add_argument(
@@ -155,5 +205,6 @@ if __name__ == "__main__":
         raise FileNotFoundError(f"IDD file not found at path: {args.idd}")
 
     content = generate_highlightjs(idd_path=args.idd, use_sample=args.sample)
-
     OUTPUT_HLJS_PATH.write_text(content)
+
+    generate_test_html()

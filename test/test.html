@@ -75,6 +75,7 @@ footer p {
     <script src="../dist/energyplus.min.js"></script>
     <script src="../dist/energyplus-err.min.js"></script>
     <script src="../dist/energyplus-idd.min.js"></script>
+
   </head>
 
   <body>
@@ -118,12 +119,13 @@ footer p {
     No,                      !- Do HVAC Sizing Simulation for Sizing Periods
     1;                       !- Maximum Number of HVAC Sizing Simulation Passes
 
+!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========
+
   Output:Variable,*,Site Total Sky Cover,hourly;
-    </code></pre>
+</code></pre>
 
     <h2>A code block for eplusout.err</h2>
-    <pre><code>
-Program Version,EnergyPlus, Version 25.2.0-6b7186059e, YMD=2026.02.12 16:08,
+    <pre><code>Program Version,EnergyPlus, Version 25.2.0-6b7186059e, YMD=2026.02.12 16:08,
    ** Warning ** Version: in IDF="26.1" not the same as expected="25.2"
    **   ~~~   ** ..Location object=DENVER CENTENNIAL  GOLDEN   N_CO_USA DESIGN_CONDITIONS
    **   ~~~   ** ..due to location differences, Latitude difference=[2.24] degrees, Longitude difference=[17.26] degrees.
@@ -148,7 +150,7 @@ Program Version,EnergyPlus, Version 25.2.0-6b7186059e, YMD=2026.02.12 16:08,
    ************* EnergyPlus Completed Successfully-- 7 Warning; 0 Severe Errors; Elapsed Time=00hr 00min  0.61sec
 
    ************* EnergyPlus Terminated--Fatal Error Detected. 1 Warning; 1 Severe Errors; Elapsed Time=00hr 00min  0.03sec
-    </code></pre>
+</code></pre>
 
     <h2>A code block for EnergyPlus IDD</h2>
     <pre><code>!IDD_Version 25.2.0
@@ -306,7 +308,7 @@ Site:SpectrumData,
   N19, N20,     \note fields as indicated
   N21, N22,     \note fields as indicated
   N23, N24;     \note fields as indicated
-    </code></pre>
+</code></pre>
 
     <h2>Another code block with a different language</h2>
     <pre><code># This is a sample Python program to check if that gets formatted as python still
@@ -319,8 +321,8 @@ print(f"Path={p}")
       <p>EffiBEM - highlightjs-energyplus | Copyright &copy; 2026 <a href="https://effibem.com" target="_blank">EffiBEM EURL</a></p>
     </footer>
 
-    <script>
+<script>
 hljs.highlightAll();
     </script>
-  </body>
+</body>
 </html>

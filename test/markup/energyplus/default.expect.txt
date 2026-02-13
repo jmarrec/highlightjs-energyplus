@@ -21,6 +21,17 @@
 
   <span class="hljs-type">SurfaceConvectionAlgorithm:Inside</span>,<span class="hljs-keyword">TARP</span><span class="hljs-operator">;</span>
 
+  <span class="hljs-type">SurfaceConvectionAlgorithm:Outside</span>,DOE-<span class="hljs-number">2</span><span class="hljs-operator">;</span>
+
+  <span class="hljs-type">SimulationControl</span>,
+    <span class="hljs-literal">No</span>,                      <span class="hljs-comment">!- Do Zone Sizing Calculation</span>
+    <span class="hljs-literal">No</span>,                      <span class="hljs-comment">!- Do System Sizing Calculation</span>
+    <span class="hljs-literal">No</span>,                      <span class="hljs-comment">!- Do Plant Sizing Calculation</span>
+    <span class="hljs-literal">Yes</span>,                     <span class="hljs-comment">!- Run Simulation for Sizing Periods</span>
+    <span class="hljs-literal">Yes</span>,                     <span class="hljs-comment">!- Run Simulation for Weather File Run Periods</span>
+    <span class="hljs-literal">No</span>,                      <span class="hljs-comment">!- Do HVAC Sizing Simulation for Sizing Periods</span>
+    <span class="hljs-number">1</span><span class="hljs-operator">;</span>                       <span class="hljs-comment">!- Maximum Number of HVAC Sizing Simulation Passes</span>
+
 <span class="hljs-section">!-   ===========  ALL OBJECTS IN CLASS: OUTPUT:VARIABLE ===========</span>
 
   <span class="hljs-type">Output:Variable</span>,*,Site Total Sky Cover,<span class="hljs-keyword">hourly</span><span class="hljs-operator">;</span>
