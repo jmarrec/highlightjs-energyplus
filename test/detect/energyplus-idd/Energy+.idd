@@ -1,0 +1,76 @@
+!IDD_Version 25.2.0
+!IDD_BUILD abc123def
+! **************************************************************************
+! This file is the Input Data Dictionary (IDD) for EnergyPlus.
+! The IDD defines the syntax and data model for each type of input "Object."
+
+\group Simulation Parameters
+
+Version,
+      \memo Specifies the EnergyPlus version of the IDF file.
+      \unique-object
+      \format singleLine
+  A1 ; \field Version Identifier
+      \default 25.2
+
+SimulationControl,
+      \unique-object
+      \memo Note that the following 3 fields are related to the Sizing:Zone, Sizing:System,
+      \memo and Sizing:Plant objects. Having these fields set to Yes but no corresponding
+      \memo Sizing object will not cause the sizing to be done.
+      \min-fields 7
+  A1, \field Do Zone Sizing Calculation
+      \note If Yes, Zone sizing is accomplished from corresponding Sizing:Zone objects
+      \note and autosize fields.
+      \type choice
+      \key Yes
+      \key No
+      \default No
+  A2, \field Do System Sizing Calculation
+      \note If Yes, System sizing is accomplished from corresponding Sizing:System objects
+      \type choice
+      \key Yes
+      \key No
+      \default No
+  N1; \field Maximum Number of HVAC Sizing Simulation Passes
+      \type integer
+      \minimum 1
+      \default 1
+
+\group Thermal Zones and Surfaces
+
+Building,
+       \memo Describes parameters that are used during the simulation
+       \memo of the building.
+       \unique-object
+       \required-object
+       \min-fields 8
+  A1 , \field Name
+       \required-field
+       \retaincase
+       \default NONE
+  N1 , \field North Axis
+       \note degrees from true North
+       \units deg
+       \type real
+       \default 0.0
+  A2 , \field Terrain
+       \note Country=FlatOpenCountry | Suburbs | City | Ocean | Urban
+       \type choice
+       \key Country
+       \key Suburbs
+       \key City
+       \key Ocean
+       \key Urban
+       \default Suburbs
+  N2 , \field Loads Convergence Tolerance Value
+       \note Loads Convergence Tolerance Value is a change in load from one warmup day to the next
+       \type real
+       \minimum> 0.0
+       \maximum 0.5
+       \default .04
+  N3 ; \field Temperature Convergence Tolerance Value
+       \type real
+       \minimum> 0.0
+       \maximum 0.5
+       \default .4

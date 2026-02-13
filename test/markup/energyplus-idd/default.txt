@@ -1,0 +1,155 @@
+!IDD_Version 25.2.0
+!IDD_BUILD abc123def
+! **************************************************************************
+! This file is the Input Data Dictionary (IDD) for EnergyPlus.
+
+\group Simulation Parameters
+
+Version,
+      \memo Specifies the EnergyPlus version of the IDF file.
+      \unique-object
+      \format singleLine
+  A1 ; \field Version Identifier
+      \default 25.2
+
+SimulationControl,
+      \unique-object
+      \memo Note that the following 3 fields are related to the Sizing:Zone, Sizing:System,
+      \memo and Sizing:Plant objects.
+      \min-fields 7
+  A1, \field Do Zone Sizing Calculation
+      \note If Yes, Zone sizing is accomplished from corresponding Sizing:Zone objects.
+      \type choice
+      \key Yes
+      \key No
+      \default No
+  N1; \field Maximum Number of HVAC Sizing Simulation Passes
+      \type integer
+      \minimum 1
+      \default 1
+
+\group Thermal Zones and Surfaces
+
+Fictitious:HeatExchanger:Detailed,
+      \memo A fictitious object exercising all IDD annotation varieties.
+      \required-object
+      \unique-object
+      \extensible:3
+      \obsolete New=>Fictitious:HeatExchanger:Detailed:V2
+      \min-fields 12
+  A1 , \field Name
+       \required-field
+       \retaincase
+       \type alpha
+       \reference HeatExchangerNames
+       \reference-class-name AllHeatExchangers
+  A2 , \field Zone Name
+       \note Zone the heat exchanger is located in
+       \type object-list
+       \object-list ZoneNames
+  A3 , \field Availability Schedule Name
+       \type object-list
+       \object-list ScheduleNames
+       \external-list autoRDDvariable
+  A4 , \field Heat Transfer Mode
+       \type choice
+       \key Convection
+       \key Radiation
+       \key Combined
+       \default Convection
+       \deprecated
+  N1 , \field Design Capacity
+       \note Total heat transfer capacity at design conditions
+       \units W
+       \ip-units Btu/h
+       \type real
+       \autosizable
+       \minimum 0.0
+       \default autosize
+  N2 , \field Design Effectiveness
+       \type real
+       \minimum> 0.0
+       \maximum< 1.0
+       \default 0.75
+  N3 , \field Inlet Temperature
+       \units C
+       \type real
+       \minimum -100.0
+       \maximum 200.0
+  N4 , \field Flow Rate
+       \note Volumetric flow rate through the exchanger
+       \units m3/s
+       \ip-units gal/min
+       \type real
+       \autocalculatable
+       \minimum> 0
+       \default autocalculate
+  N5 , \field Pressure Drop
+       \units Pa
+       \unitsBasedOnField A4
+       \type real
+       \minimum 0
+       \maximum 5.0E+05
+  N6 , \field Convergence Tolerance
+       \type real
+       \minimum> 0.0
+       \maximum 0.5
+       \default 0.001
+  A5 , \field End-Use Subcategory
+       \type alpha
+       \retaincase
+       \default General
+       \begin-extensible
+  A6 , \field Inlet Node Name 1
+       \required-field
+       \type node
+  A7 , \field Outlet Node Name 2
+       \required-field
+       \type node
+  N7 ; \field Branch Flow Fraction
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+       \default 1.0
+
+! An example of an object that has a bunch of extra useless fields at the end for IDFEditor
+Site:SpectrumData,
+      \min-fields 8
+      \memo Spectrum Data Type is followed by up to 107 sets of normal-incidence measured values of
+      \memo [wavelength, spectrum] for wavelengths covering the solar (0.25 to 2.5 microns) or visible
+      \memo spectrum (0.38 to 0.78 microns)
+      \extensible:2
+  A1, \field Name
+      \required-field
+      \type alpha
+      \reference SpectrumDataNames
+  A2, \field Spectrum Data Type
+      \required-field
+      \type choice
+      \key Solar
+      \key Visible
+  N1, \field Wavelength
+      \type real
+      \units micron
+  N2, \field Spectrum
+      \type real
+  N3, \field Wavelength
+      \type real
+      \units micron
+  N4, \field Spectrum
+      \type real
+  N5, \field Wavelength
+      \begin-extensible
+      \type real
+      \units micron
+  N6, \field Spectrum
+      \type real
+  N7, N8,       \note fields as indicated
+  N9, N10,      \note fields as indicated
+  N11, N12,     \note fields as indicated
+  N13, N14,     \note fields as indicated
+  N15, N16,     \note fields as indicated
+  N17, N18,     \note fields as indicated
+  N19, N20,     \note fields as indicated
+  N21, N22,     \note fields as indicated
+  N23, N24;     \note fields as indicated

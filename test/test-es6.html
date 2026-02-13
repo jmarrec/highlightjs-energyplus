@@ -146,6 +146,36 @@ Program Version,EnergyPlus, Version 25.2.0-6b7186059e, YMD=2026.02.12 16:08,
    ************* EnergyPlus Terminated--Fatal Error Detected. 1 Warning; 1 Severe Errors; Elapsed Time=00hr 00min  0.03sec
     </code></pre>
 
+    <h2>A code block for EnergyPlus IDD</h2>
+    <pre><code>!IDD_Version 25.2.0
+! This file is the Input Data Dictionary (IDD) for EnergyPlus.
+
+\group Simulation Parameters
+
+Version,
+      \memo Specifies the EnergyPlus version of the IDF file.
+      \unique-object
+      \format singleLine
+  A1 ; \field Version Identifier
+      \default 25.2
+
+SimulationControl,
+      \unique-object
+      \memo Note that the following 3 fields are related to the Sizing:Zone, Sizing:System,
+      \memo and Sizing:Plant objects.
+      \min-fields 7
+  A1, \field Do Zone Sizing Calculation
+      \note If Yes, Zone sizing is accomplished from corresponding Sizing:Zone objects.
+      \type choice
+      \key Yes
+      \key No
+      \default No
+  N1; \field Maximum Number of HVAC Sizing Simulation Passes
+      \type integer
+      \minimum 1
+      \default 1
+    </code></pre>
+
     <h2>Another code block with a different language</h2>
     <pre><code># This is a sample Python program to check if that gets formatted as python still
 from pathlib import Path
@@ -162,9 +192,11 @@ import hljs from 'https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/e
 import python from 'https://unpkg.com/@highlightjs/cdn-assets@11.11.1/es/languages/python.min.js';
 import energyplus from '../dist/energyplus.es.min.js';
 import energyplusErr from '../dist/energyplus-err.es.min.js';
+import energyplusIdd from '../dist/energyplus-idd.es.min.js';
 hljs.registerLanguage('python', python);
 hljs.registerLanguage('energyplus', energyplus);
 hljs.registerLanguage('energyplus-err', energyplusErr);
+hljs.registerLanguage('energyplus-idd', energyplusIdd);
 hljs.highlightAll();
     </script>
   </body>

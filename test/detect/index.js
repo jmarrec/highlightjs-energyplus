@@ -4,12 +4,14 @@ const fs = require('fs');
 const hljs = require("highlight.js/lib/core");
 const energyplus = require("../../src/languages/energyplus");
 const energyplusErr = require("../../src/languages/energyplus-err");
+const energyplusIdd = require("../../src/languages/energyplus-idd");
 const path = require('path');
 const utility = require('../utility');
 
 hljs.debugMode();
 hljs.registerLanguage("energyplus", energyplus);
 hljs.registerLanguage("energyplus-err", energyplusErr);
+hljs.registerLanguage("energyplus-idd", energyplusIdd);
 
 function describeDetect(languageName) {
   describe(`hljs.highlightAuto() for ${languageName}`, () => {
@@ -33,3 +35,4 @@ function describeDetect(languageName) {
 
 describeDetect("energyplus");
 describeDetect("energyplus-err");
+describeDetect("energyplus-idd");
